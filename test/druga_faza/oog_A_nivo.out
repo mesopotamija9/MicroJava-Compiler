@@ -1,0 +1,363 @@
+INFO  21:07:49,040 - Compiling source file: D:\Programing Projects\PROG_P1\workspace\MJCompiler\test\druga_faza\oog_A_nivo.mj
+INFO  21:07:49,083 - #17 program
+INFO  21:07:49,083 - #2 oog_A_nivo
+INFO  21:07:49,083 - #22 const
+INFO  21:07:49,084 - #2 int
+INFO  21:07:49,084 - #2 two
+INFO  21:07:49,085 - #36 =
+INFO  21:07:49,085 - #3 2
+INFO  21:07:49,085 - #39 ;
+INFO  21:07:49,086 - #2 int
+INFO  21:07:49,086 - #2 a
+INFO  21:07:49,087 - #12 +
+ERROR 21:07:49,087 - 
+Sintaksna greska na liniji 7
+INFO  21:07:49,087 - #39 ;
+INFO  21:07:49,087 - #22 const
+INFO  21:07:49,087 - #2 char
+INFO  21:07:49,088 - #2 c
+ERROR 21:07:49,088 - Izvrsen oporavak u okviru deklaracije promenljive na liniji 7
+INFO  21:07:49,089 - #36 =
+INFO  21:07:49,089 - #4 a
+INFO  21:07:49,089 - #39 ;
+INFO  21:07:49,089 - #2 int
+INFO  21:07:49,090 - #2 a
+INFO  21:07:49,090 - #41 ,
+INFO  21:07:49,090 - #2 b
+INFO  21:07:49,090 - #12 +
+ERROR 21:07:49,090 - 
+Sintaksna greska na liniji 11
+INFO  21:07:49,090 - #41 ,
+INFO  21:07:49,090 - #2 c
+INFO  21:07:49,090 - #45 [
+INFO  21:07:49,090 - #46 ]
+ERROR 21:07:49,090 - Izvrsen oporavak u okviru deklaracije promenljive na liniji 11
+INFO  21:07:49,090 - #12 +
+ERROR 21:07:49,090 - 
+Sintaksna greska na liniji 11
+INFO  21:07:49,090 - #41 ,
+INFO  21:07:49,090 - #2 d
+INFO  21:07:49,090 - #41 ,
+INFO  21:07:49,091 - #2 e
+ERROR 21:07:49,091 - Izvrsen oporavak u okviru deklaracije promenljive na liniji 11
+INFO  21:07:49,091 - #45 [
+INFO  21:07:49,091 - #46 ]
+INFO  21:07:49,091 - #39 ;
+INFO  21:07:49,091 - #22 const
+INFO  21:07:49,091 - #2 bool
+INFO  21:07:49,091 - #2 boolean
+INFO  21:07:49,091 - #36 =
+INFO  21:07:49,091 - #5 true
+INFO  21:07:49,091 - #39 ;
+INFO  21:07:49,091 - #47 {
+INFO  21:07:49,092 - #30 void
+INFO  21:07:49,092 - #2 main
+INFO  21:07:49,092 - #43 (
+INFO  21:07:49,093 - #44 )
+INFO  21:07:49,093 - #47 {
+INFO  21:07:49,093 - #2 num
+INFO  21:07:49,094 - #36 =
+INFO  21:07:49,095 - #3 2
+INFO  21:07:49,096 - #39 ;
+INFO  21:07:49,097 - #2 num
+INFO  21:07:49,097 - #2 a
+ERROR 21:07:49,097 - 
+Sintaksna greska na liniji 20
+INFO  21:07:49,097 - #36 =
+INFO  21:07:49,097 - #3 2
+INFO  21:07:49,097 - #39 ;
+INFO  21:07:49,097 - #2 num
+INFO  21:07:49,097 - #36 =
+INFO  21:07:49,097 - #2 a
+ERROR 21:07:49,097 - Izvrsen oporavak u okviru dodele vrednosti na liniji 20
+INFO  21:07:49,098 - #3 2
+ERROR 21:07:49,098 - 
+Sintaksna greska na liniji 21
+INFO  21:07:49,098 - #39 ;
+INFO  21:07:49,098 - #2 num
+INFO  21:07:49,098 - #36 =
+INFO  21:07:49,098 - #12 +
+ERROR 21:07:49,098 - Izvrsen oporavak u okviru dodele vrednosti na liniji 21
+ERROR 21:07:49,098 - 
+Sintaksna greska na liniji 22
+INFO  21:07:49,098 - #36 =
+INFO  21:07:49,098 - #3 2
+INFO  21:07:49,098 - #39 ;
+INFO  21:07:49,098 - #2 num
+INFO  21:07:49,098 - #36 =
+INFO  21:07:49,098 - #2 two
+ERROR 21:07:49,098 - Izvrsen oporavak u okviru dodele vrednosti na liniji 22
+INFO  21:07:49,099 - #39 ;
+INFO  21:07:49,099 - #2 num
+INFO  21:07:49,099 - #36 =
+INFO  21:07:49,099 - #15 /
+ERROR 21:07:49,099 - 
+Sintaksna greska na liniji 24
+INFO  21:07:49,099 - #2 two
+INFO  21:07:49,099 - #39 ;
+INFO  21:07:49,099 - #2 num
+INFO  21:07:49,099 - #36 =
+INFO  21:07:49,099 - #2 two
+ERROR 21:07:49,099 - Izvrsen oporavak u okviru dodele vrednosti na liniji 24
+INFO  21:07:49,099 - #14 *
+INFO  21:07:49,099 - #39 ;
+ERROR 21:07:49,099 - 
+Sintaksna greska na liniji 25
+INFO  21:07:49,099 - #48 }
+INFO  21:07:49,099 - #48 }
+ERROR 21:07:49,100 - Izvrsen oporavak u okviru dodele vrednosti na liniji 25
+INFO  21:07:49,104 - Program(
+  ProgramName(
+   oog_A_nivo
+  ) [ProgramName]
+  DeclList(
+    DeclList(
+      DeclList(
+        DeclList(
+          DeclList(
+            NoDeclList(
+            ) [NoDeclList]
+            DeclElementConst(
+              ConstDeclaration(
+                Type(
+                 int
+                ) [Type]
+                ConstName(
+                 two
+                ) [ConstName]
+                LiteralElementInt(
+                 2
+                ) [LiteralElementInt]
+                NoConstDeclList(
+                ) [NoConstDeclList]
+              ) [ConstDeclaration]
+            ) [DeclElementConst]
+          ) [DeclList]
+          DeclElementVar(
+            VarDeclaration(
+              Type(
+               int
+              ) [Type]
+              VarNameDerived1(
+              ) [VarNameDerived1]
+              NoVarDeclMultiple(
+              ) [NoVarDeclMultiple]
+            ) [VarDeclaration]
+          ) [DeclElementVar]
+        ) [DeclList]
+        DeclElementConst(
+          ConstDeclaration(
+            Type(
+             char
+            ) [Type]
+            ConstName(
+             c
+            ) [ConstName]
+            LiteralElementChar(
+             a
+            ) [LiteralElementChar]
+            NoConstDeclList(
+            ) [NoConstDeclList]
+          ) [ConstDeclaration]
+        ) [DeclElementConst]
+      ) [DeclList]
+      DeclElementVar(
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+          VariableName(
+           a
+          ) [VariableName]
+          VarDeclMultiple(
+            VarDeclMultiple(
+              VarDeclMultiple(
+                VarDeclMultiple(
+                  NoVarDeclMultiple(
+                  ) [NoVarDeclMultiple]
+                  VarNameDerived1(
+                  ) [VarNameDerived1]
+                ) [VarDeclMultiple]
+                VarNameDerived1(
+                ) [VarNameDerived1]
+              ) [VarDeclMultiple]
+              VariableName(
+               d
+              ) [VariableName]
+            ) [VarDeclMultiple]
+            VariableArrayName(
+             e
+            ) [VariableArrayName]
+          ) [VarDeclMultiple]
+        ) [VarDeclaration]
+      ) [DeclElementVar]
+    ) [DeclList]
+    DeclElementConst(
+      ConstDeclaration(
+        Type(
+         bool
+        ) [Type]
+        ConstName(
+         boolean
+        ) [ConstName]
+        LiteralElementBool(
+         true
+        ) [LiteralElementBool]
+        NoConstDeclList(
+        ) [NoConstDeclList]
+      ) [ConstDeclaration]
+    ) [DeclElementConst]
+  ) [DeclList]
+  MethodDeclList(
+    MethodDeclarationVoid(
+      MethodNameVoid(
+       main
+      ) [MethodNameVoid]
+      NoFormParams(
+      ) [NoFormParams]
+      NoVarDeclList(
+      ) [NoVarDeclList]
+      StatementList(
+        StatementList(
+          StatementList(
+            StatementList(
+              StatementList(
+                StatementList(
+                  StatementList(
+                    NoStatementList(
+                    ) [NoStatementList]
+                    StatementDesignatorStatement(
+                      DesignatorStmtAssign(
+                        DesignatorStatementAssign(
+                          Designator(
+                            DesignatorIdent(
+                             num
+                            ) [DesignatorIdent]
+                          ) [Designator]
+                          AssignOperator(
+                          ) [AssignOperator]
+                          ExprWithoutMinus(
+                            Term(
+                              FactorIntLiteral(
+                               2
+                              ) [FactorIntLiteral]
+                              NoMulopFactor(
+                              ) [NoMulopFactor]
+                            ) [Term]
+                            NoAddopTerminal(
+                            ) [NoAddopTerminal]
+                          ) [ExprWithoutMinus]
+                        ) [DesignatorStatementAssign]
+                      ) [DesignatorStmtAssign]
+                    ) [StatementDesignatorStatement]
+                  ) [StatementList]
+                  StatementDesignatorStatement(
+                    DesignatorStmtAssign(
+                      DesignatorStmAssignDerived1(
+                      ) [DesignatorStmAssignDerived1]
+                    ) [DesignatorStmtAssign]
+                  ) [StatementDesignatorStatement]
+                ) [StatementList]
+                StatementDesignatorStatement(
+                  DesignatorStmtAssign(
+                    DesignatorStmAssignDerived1(
+                    ) [DesignatorStmAssignDerived1]
+                  ) [DesignatorStmtAssign]
+                ) [StatementDesignatorStatement]
+              ) [StatementList]
+              StatementDesignatorStatement(
+                DesignatorStmtAssign(
+                  DesignatorStmAssignDerived1(
+                  ) [DesignatorStmAssignDerived1]
+                ) [DesignatorStmtAssign]
+              ) [StatementDesignatorStatement]
+            ) [StatementList]
+            StatementDesignatorStatement(
+              DesignatorStmtAssign(
+                DesignatorStatementAssign(
+                  Designator(
+                    DesignatorIdent(
+                     num
+                    ) [DesignatorIdent]
+                  ) [Designator]
+                  AssignOperator(
+                  ) [AssignOperator]
+                  ExprWithoutMinus(
+                    Term(
+                      FactorDesignator(
+                        Designator(
+                          DesignatorIdent(
+                           two
+                          ) [DesignatorIdent]
+                        ) [Designator]
+                      ) [FactorDesignator]
+                      NoMulopFactor(
+                      ) [NoMulopFactor]
+                    ) [Term]
+                    NoAddopTerminal(
+                    ) [NoAddopTerminal]
+                  ) [ExprWithoutMinus]
+                ) [DesignatorStatementAssign]
+              ) [DesignatorStmtAssign]
+            ) [StatementDesignatorStatement]
+          ) [StatementList]
+          StatementDesignatorStatement(
+            DesignatorStmtAssign(
+              DesignatorStmAssignDerived1(
+              ) [DesignatorStmAssignDerived1]
+            ) [DesignatorStmtAssign]
+          ) [StatementDesignatorStatement]
+        ) [StatementList]
+        StatementDesignatorStatement(
+          DesignatorStmtAssign(
+            DesignatorStmAssignDerived1(
+            ) [DesignatorStmAssignDerived1]
+          ) [DesignatorStmtAssign]
+        ) [StatementDesignatorStatement]
+      ) [StatementList]
+    ) [MethodDeclarationVoid]
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+  ) [MethodDeclList]
+) [Program]
+INFO  21:07:49,104 - ===================================
+INFO  21:07:49,108 - Deklaracija konstante -> Con two: int, 2, 0 na liniji 5
+INFO  21:07:49,108 - Deklaracija konstante -> Con c: char, 97, 0 na liniji 9
+INFO  21:07:49,108 - Deklaracija globalne promenljive -> Var a: int, 0, 0 na liniji 11
+INFO  21:07:49,108 - Deklaracija globalne promenljive -> Var d: int, 1, 0 na liniji 11
+INFO  21:07:49,109 - Deklaracija globalne promenljive -> Var e: Arr of int, 2, 0 na liniji 11
+INFO  21:07:49,109 - Deklaracija konstante -> Con boolean: bool, 1, 0 na liniji 13
+INFO  21:07:49,109 - Obradjuje se deklaracija funkcije main na liniji 17
+ERROR 21:07:49,109 - Simbol 'num' nije deklarisan <- Greska na liniji 19
+ERROR 21:07:49,109 - d) Leva i desan strana moraju imati isti tip -> 'notype' != 'int' <- Greska na liniji 19
+ERROR 21:07:49,109 - Simbol 'num' nije deklarisan <- Greska na liniji 23
+INFO  21:07:49,109 - Upotreba simbola 'two' na liniji 23
+ERROR 21:07:49,109 - d) Leva i desan strana moraju imati isti tip -> 'notype' != 'int' <- Greska na liniji 23
+INFO  21:07:49,109 - ===================================
+=====================SYMBOL TABLE DUMP=========================
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: bool, -1, -1 
+Prog oog_A_nivo: notype, 0, 1 
+   Con two: int, 2, 0 
+   Con c: char, 97, 0 
+   Var a: int, 0, 0 
+   Var d: int, 1, 0 
+   Var e: Arr of int, 2, 0 
+   Con boolean: bool, 1, 0 
+   Meth main: notype, 0, 0 
+
+
+
+ERROR 21:07:49,109 - Parsiranje nije uspesno zavrseno

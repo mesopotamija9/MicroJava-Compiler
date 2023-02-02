@@ -1,0 +1,479 @@
+INFO  21:54:34,278 - Compiling source file: D:\Programing Projects\PROG_P1\workspace\MJCompiler\test\cetvrta_faza\ga_vezbe_2020_1_zad_A_nivo.mj
+INFO  21:54:34,325 - #17 program
+INFO  21:54:34,325 - #2 ABC
+INFO  21:54:34,325 - #22 const
+INFO  21:54:34,326 - #2 int
+INFO  21:54:34,327 - #2 N
+INFO  21:54:34,327 - #36 =
+INFO  21:54:34,328 - #3 2
+INFO  21:54:34,328 - #39 ;
+INFO  21:54:34,329 - #2 int
+INFO  21:54:34,329 - #2 g
+INFO  21:54:34,329 - #39 ;
+INFO  21:54:34,331 - #47 {
+INFO  21:54:34,331 - #30 void
+INFO  21:54:34,331 - #2 main
+INFO  21:54:34,331 - #43 (
+INFO  21:54:34,332 - #44 )
+INFO  21:54:34,332 - #2 int
+INFO  21:54:34,333 - #2 x
+INFO  21:54:34,333 - #41 ,
+INFO  21:54:34,333 - #2 y
+INFO  21:54:34,333 - #39 ;
+INFO  21:54:34,333 - #2 int
+INFO  21:54:34,334 - #2 niz
+INFO  21:54:34,334 - #45 [
+INFO  21:54:34,334 - #46 ]
+INFO  21:54:34,334 - #39 ;
+INFO  21:54:34,334 - #47 {
+INFO  21:54:34,334 - #2 g
+INFO  21:54:34,334 - #36 =
+INFO  21:54:34,335 - #2 N
+INFO  21:54:34,336 - #39 ;
+INFO  21:54:34,337 - #2 y
+INFO  21:54:34,338 - #36 =
+INFO  21:54:34,338 - #3 53
+INFO  21:54:34,338 - #39 ;
+INFO  21:54:34,338 - #2 g
+INFO  21:54:34,338 - #37 ++
+INFO  21:54:34,338 - #39 ;
+INFO  21:54:34,338 - #2 x
+INFO  21:54:34,338 - #36 =
+INFO  21:54:34,338 - #13 -
+INFO  21:54:34,338 - #2 y
+INFO  21:54:34,338 - #12 +
+INFO  21:54:34,339 - #2 g
+INFO  21:54:34,339 - #14 *
+INFO  21:54:34,339 - #2 N
+INFO  21:54:34,339 - #39 ;
+INFO  21:54:34,339 - #2 niz
+INFO  21:54:34,340 - #36 =
+INFO  21:54:34,340 - #26 new
+INFO  21:54:34,340 - #2 int
+INFO  21:54:34,340 - #45 [
+INFO  21:54:34,340 - #2 N
+INFO  21:54:34,340 - #46 ]
+INFO  21:54:34,340 - #39 ;
+INFO  21:54:34,340 - #2 niz
+INFO  21:54:34,340 - #45 [
+INFO  21:54:34,340 - #3 0
+INFO  21:54:34,340 - #46 ]
+INFO  21:54:34,340 - #36 =
+INFO  21:54:34,340 - #2 niz
+INFO  21:54:34,340 - #45 [
+INFO  21:54:34,340 - #2 x
+INFO  21:54:34,340 - #12 +
+INFO  21:54:34,341 - #2 y
+INFO  21:54:34,341 - #46 ]
+INFO  21:54:34,341 - #39 ;
+INFO  21:54:34,341 - #2 niz
+INFO  21:54:34,341 - #45 [
+INFO  21:54:34,341 - #3 1
+INFO  21:54:34,341 - #46 ]
+INFO  21:54:34,341 - #37 ++
+INFO  21:54:34,341 - #39 ;
+INFO  21:54:34,341 - #48 }
+INFO  21:54:34,341 - #48 }
+INFO  21:54:34,347 - Program(
+  ProgramName(
+   ABC
+  ) [ProgramName]
+  DeclList(
+    DeclList(
+      NoDeclList(
+      ) [NoDeclList]
+      DeclElementConst(
+        ConstDeclaration(
+          Type(
+           int
+          ) [Type]
+          ConstName(
+           N
+          ) [ConstName]
+          LiteralElementInt(
+           2
+          ) [LiteralElementInt]
+          NoConstDeclList(
+          ) [NoConstDeclList]
+        ) [ConstDeclaration]
+      ) [DeclElementConst]
+    ) [DeclList]
+    DeclElementVar(
+      VarDeclaration(
+        Type(
+         int
+        ) [Type]
+        VariableName(
+         g
+        ) [VariableName]
+        NoVarDeclMultiple(
+        ) [NoVarDeclMultiple]
+      ) [VarDeclaration]
+    ) [DeclElementVar]
+  ) [DeclList]
+  MethodDeclList(
+    MethodDeclarationVoid(
+      MethodNameVoid(
+       main
+      ) [MethodNameVoid]
+      NoFormParams(
+      ) [NoFormParams]
+      VarDeclList(
+        VarDeclList(
+          NoVarDeclList(
+          ) [NoVarDeclList]
+          VarDeclaration(
+            Type(
+             int
+            ) [Type]
+            VariableName(
+             x
+            ) [VariableName]
+            VarDeclMultiple(
+              NoVarDeclMultiple(
+              ) [NoVarDeclMultiple]
+              VariableName(
+               y
+              ) [VariableName]
+            ) [VarDeclMultiple]
+          ) [VarDeclaration]
+        ) [VarDeclList]
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+          VariableArrayName(
+           niz
+          ) [VariableArrayName]
+          NoVarDeclMultiple(
+          ) [NoVarDeclMultiple]
+        ) [VarDeclaration]
+      ) [VarDeclList]
+      StatementList(
+        StatementList(
+          StatementList(
+            StatementList(
+              StatementList(
+                StatementList(
+                  StatementList(
+                    NoStatementList(
+                    ) [NoStatementList]
+                    StatementDesignatorStatement(
+                      DesignatorStmtAssign(
+                        DesignatorStatementAssign(
+                          Designator(
+                            DesignatorIdent(
+                             g
+                            ) [DesignatorIdent]
+                          ) [Designator]
+                          AssignOperator(
+                          ) [AssignOperator]
+                          ExprWithoutMinus(
+                            Term(
+                              FactorDesignator(
+                                Designator(
+                                  DesignatorIdent(
+                                   N
+                                  ) [DesignatorIdent]
+                                ) [Designator]
+                              ) [FactorDesignator]
+                              NoMulopFactor(
+                              ) [NoMulopFactor]
+                            ) [Term]
+                            NoAddopTerminal(
+                            ) [NoAddopTerminal]
+                          ) [ExprWithoutMinus]
+                        ) [DesignatorStatementAssign]
+                      ) [DesignatorStmtAssign]
+                    ) [StatementDesignatorStatement]
+                  ) [StatementList]
+                  StatementDesignatorStatement(
+                    DesignatorStmtAssign(
+                      DesignatorStatementAssign(
+                        Designator(
+                          DesignatorIdent(
+                           y
+                          ) [DesignatorIdent]
+                        ) [Designator]
+                        AssignOperator(
+                        ) [AssignOperator]
+                        ExprWithoutMinus(
+                          Term(
+                            FactorIntLiteral(
+                             53
+                            ) [FactorIntLiteral]
+                            NoMulopFactor(
+                            ) [NoMulopFactor]
+                          ) [Term]
+                          NoAddopTerminal(
+                          ) [NoAddopTerminal]
+                        ) [ExprWithoutMinus]
+                      ) [DesignatorStatementAssign]
+                    ) [DesignatorStmtAssign]
+                  ) [StatementDesignatorStatement]
+                ) [StatementList]
+                StatementDesignatorStatement(
+                  DesignatorStatementIncrement(
+                    Designator(
+                      DesignatorIdent(
+                       g
+                      ) [DesignatorIdent]
+                    ) [Designator]
+                  ) [DesignatorStatementIncrement]
+                ) [StatementDesignatorStatement]
+              ) [StatementList]
+              StatementDesignatorStatement(
+                DesignatorStmtAssign(
+                  DesignatorStatementAssign(
+                    Designator(
+                      DesignatorIdent(
+                       x
+                      ) [DesignatorIdent]
+                    ) [Designator]
+                    AssignOperator(
+                    ) [AssignOperator]
+                    ExprWithMinus(
+                      MinusTerm(
+                       -
+                        Term(
+                          FactorDesignator(
+                            Designator(
+                              DesignatorIdent(
+                               y
+                              ) [DesignatorIdent]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                          NoMulopFactor(
+                          ) [NoMulopFactor]
+                        ) [Term]
+                      ) [MinusTerm]
+                      AddopTerminal(
+                        NoAddopTerminal(
+                        ) [NoAddopTerminal]
+                        AddopPlus(
+                         +
+                        ) [AddopPlus]
+                        Term(
+                          FactorDesignator(
+                            Designator(
+                              DesignatorIdent(
+                               g
+                              ) [DesignatorIdent]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                          MulopFactor(
+                            NoMulopFactor(
+                            ) [NoMulopFactor]
+                            MuloptMultiply(
+                             *
+                            ) [MuloptMultiply]
+                            FactorDesignator(
+                              Designator(
+                                DesignatorIdent(
+                                 N
+                                ) [DesignatorIdent]
+                              ) [Designator]
+                            ) [FactorDesignator]
+                          ) [MulopFactor]
+                        ) [Term]
+                      ) [AddopTerminal]
+                    ) [ExprWithMinus]
+                  ) [DesignatorStatementAssign]
+                ) [DesignatorStmtAssign]
+              ) [StatementDesignatorStatement]
+            ) [StatementList]
+            StatementDesignatorStatement(
+              DesignatorStmtAssign(
+                DesignatorStatementAssign(
+                  Designator(
+                    DesignatorIdent(
+                     niz
+                    ) [DesignatorIdent]
+                  ) [Designator]
+                  AssignOperator(
+                  ) [AssignOperator]
+                  ExprWithoutMinus(
+                    Term(
+                      FactorNewTypeExpr(
+                        Type(
+                         int
+                        ) [Type]
+                        ExprWithoutMinus(
+                          Term(
+                            FactorDesignator(
+                              Designator(
+                                DesignatorIdent(
+                                 N
+                                ) [DesignatorIdent]
+                              ) [Designator]
+                            ) [FactorDesignator]
+                            NoMulopFactor(
+                            ) [NoMulopFactor]
+                          ) [Term]
+                          NoAddopTerminal(
+                          ) [NoAddopTerminal]
+                        ) [ExprWithoutMinus]
+                      ) [FactorNewTypeExpr]
+                      NoMulopFactor(
+                      ) [NoMulopFactor]
+                    ) [Term]
+                    NoAddopTerminal(
+                    ) [NoAddopTerminal]
+                  ) [ExprWithoutMinus]
+                ) [DesignatorStatementAssign]
+              ) [DesignatorStmtAssign]
+            ) [StatementDesignatorStatement]
+          ) [StatementList]
+          StatementDesignatorStatement(
+            DesignatorStmtAssign(
+              DesignatorStatementAssign(
+                Designator(
+                  DesignatorMul(
+                    DesignatorIdent(
+                     niz
+                    ) [DesignatorIdent]
+                    ExprWithoutMinus(
+                      Term(
+                        FactorIntLiteral(
+                         0
+                        ) [FactorIntLiteral]
+                        NoMulopFactor(
+                        ) [NoMulopFactor]
+                      ) [Term]
+                      NoAddopTerminal(
+                      ) [NoAddopTerminal]
+                    ) [ExprWithoutMinus]
+                  ) [DesignatorMul]
+                ) [Designator]
+                AssignOperator(
+                ) [AssignOperator]
+                ExprWithoutMinus(
+                  Term(
+                    FactorDesignator(
+                      Designator(
+                        DesignatorMul(
+                          DesignatorIdent(
+                           niz
+                          ) [DesignatorIdent]
+                          ExprWithoutMinus(
+                            Term(
+                              FactorDesignator(
+                                Designator(
+                                  DesignatorIdent(
+                                   x
+                                  ) [DesignatorIdent]
+                                ) [Designator]
+                              ) [FactorDesignator]
+                              NoMulopFactor(
+                              ) [NoMulopFactor]
+                            ) [Term]
+                            AddopTerminal(
+                              NoAddopTerminal(
+                              ) [NoAddopTerminal]
+                              AddopPlus(
+                               +
+                              ) [AddopPlus]
+                              Term(
+                                FactorDesignator(
+                                  Designator(
+                                    DesignatorIdent(
+                                     y
+                                    ) [DesignatorIdent]
+                                  ) [Designator]
+                                ) [FactorDesignator]
+                                NoMulopFactor(
+                                ) [NoMulopFactor]
+                              ) [Term]
+                            ) [AddopTerminal]
+                          ) [ExprWithoutMinus]
+                        ) [DesignatorMul]
+                      ) [Designator]
+                    ) [FactorDesignator]
+                    NoMulopFactor(
+                    ) [NoMulopFactor]
+                  ) [Term]
+                  NoAddopTerminal(
+                  ) [NoAddopTerminal]
+                ) [ExprWithoutMinus]
+              ) [DesignatorStatementAssign]
+            ) [DesignatorStmtAssign]
+          ) [StatementDesignatorStatement]
+        ) [StatementList]
+        StatementDesignatorStatement(
+          DesignatorStatementIncrement(
+            Designator(
+              DesignatorMul(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                ExprWithoutMinus(
+                  Term(
+                    FactorIntLiteral(
+                     1
+                    ) [FactorIntLiteral]
+                    NoMulopFactor(
+                    ) [NoMulopFactor]
+                  ) [Term]
+                  NoAddopTerminal(
+                  ) [NoAddopTerminal]
+                ) [ExprWithoutMinus]
+              ) [DesignatorMul]
+            ) [Designator]
+          ) [DesignatorStatementIncrement]
+        ) [StatementDesignatorStatement]
+      ) [StatementList]
+    ) [MethodDeclarationVoid]
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+  ) [MethodDeclList]
+) [Program]
+INFO  21:54:34,348 - ===================================
+INFO  21:54:34,352 - Deklaracija konstante -> Con N: int, 2, 0 na liniji 2
+INFO  21:54:34,352 - Deklaracija globalne promenljive -> Var g: int, 0, 0 na liniji 3
+INFO  21:54:34,352 - Obradjuje se deklaracija funkcije main na liniji 5
+INFO  21:54:34,352 - Deklaracija lokalne promenljive -> Var x: int, 0, 1 na liniji 6
+INFO  21:54:34,352 - Deklaracija lokalne promenljive -> Var y: int, 1, 1 na liniji 6
+INFO  21:54:34,352 - Deklaracija lokalne promenljive -> Var niz: Arr of int, 2, 1 na liniji 7
+INFO  21:54:34,352 - Upotreba simbola 'g' na liniji 9
+INFO  21:54:34,352 - Upotreba simbola 'N' na liniji 9
+INFO  21:54:34,353 - Upotreba simbola 'y' na liniji 10
+INFO  21:54:34,353 - Upotreba simbola 'g' na liniji 11
+INFO  21:54:34,353 - Upotreba simbola 'x' na liniji 12
+INFO  21:54:34,353 - Upotreba simbola 'y' na liniji 12
+INFO  21:54:34,353 - Upotreba simbola 'g' na liniji 12
+INFO  21:54:34,353 - Upotreba simbola 'N' na liniji 12
+INFO  21:54:34,353 - Upotreba simbola 'niz' na liniji 13
+INFO  21:54:34,353 - Upotreba simbola 'N' na liniji 13
+INFO  21:54:34,353 - Upotreba simbola 'niz' na liniji 14
+INFO  21:54:34,353 - Upotreba simbola 'niz' na liniji 14
+INFO  21:54:34,353 - Upotreba simbola 'x' na liniji 14
+INFO  21:54:34,353 - Upotreba simbola 'y' na liniji 14
+INFO  21:54:34,353 - Upotreba simbola 'niz' na liniji 15
+INFO  21:54:34,354 - ===================================
+=====================SYMBOL TABLE DUMP=========================
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: bool, -1, -1 
+Prog ABC: notype, 0, 1 
+   Con N: int, 2, 0 
+   Var g: int, 0, 0 
+   Meth main: notype, 0, 0 
+      Var x: int, 0, 1 
+      Var y: int, 1, 1 
+      Var niz: Arr of int, 2, 1 
+
+
+
+INFO  21:54:34,354 - Parsiranje uspesno zavrseno
+INFO  21:54:34,359 - Generisanje koda uspesno zavrseno

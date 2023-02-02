@@ -1,0 +1,167 @@
+// Generisanje koda A nivo
+
+program gk_A_nivo
+	
+	int iA, iB, iC, iD, iArrA[];
+	char cA, cB;
+	bool bA, bB;
+	char cArrA[];
+	
+	const int dva = 2, tri = 3;
+	const char maloA = 'a';
+	const char velikoA = 'A';
+	const bool con_bTrue = true, con_bFalse = false;
+{
+	void func()
+		int x, y, z;
+	{
+	
+	}
+
+	void main()
+		int x, y, z;
+	{
+		print('t');
+		print(':');
+		print(true);
+		print(eol);
+		// t:1
+		
+		
+		print('f');
+		print(':');
+		print(false);
+		print(eol);
+		// f:0
+		
+		print('t');
+		print(':');
+		print(con_bTrue);
+		print(eol);
+		// t:1
+		
+		print('f');
+		print(':');
+		print(con_bFalse);
+		print(eol);
+		// f:0
+		
+		print(4);
+		print(eol);
+		// 4
+		
+		print(50, 4);
+		print(eol);
+		//   50
+		
+		print(dva, 3);
+		print(eol);
+		//   2
+		
+		print(tri);
+		print(eol);
+		// 3
+		
+		print(maloA);
+		print(velikoA, 2);
+		print(eol);
+		// a A
+		
+		x = dva + 3;
+		x++;
+		x++;
+		x--;
+		print(x);
+		print(eol);
+		// 6
+		
+		print(x * x);
+		print(eol);
+		// 36
+		
+		print(-x * x);
+		print(eol);
+		// -36
+		
+		y = 2;
+		x = -(((2 * dva + 3 / tri) * 8) + 1) % 4;
+		print(x);
+		print(eol);
+		// -1
+		
+		iArrA = new int[4];
+		iArrA[0] = 1;
+		iArrA[1] = dva;
+		iArrA[dva] = tri;
+		iArrA[tri] = tri + dva - 1; 
+		
+		print(iArrA[0], 2);
+		print(iArrA[iArrA[0]], 2);
+		print(iArrA[dva], 2);
+		print(iArrA[iArrA[1 + 1]], 2);
+		print(eol);
+		//  1 2 3 4
+		
+		[iA, iB, iC, iD] = iArrA;
+		
+		print(iD, 2);
+		print(iC, 2);
+		print(iB, 2);
+		print(iA, 2);
+		print(eol);
+		//  4 3 2 1
+		
+		[,,,,,,,,] = iArrA; // nista se ne desi
+		
+		[,,,iA] = iArrA;
+		print(iA);
+		print(eol);
+		// 4
+		
+		[iA,,,iB] = iArrA;
+		print(iA, 2);
+		print(iB, 2);
+		print(eol);
+		//  1 4
+		
+		[,iA,iB] = iArrA;
+		print(iA, 2);
+		print(iB, 2);
+		print(eol);
+		//  2 3
+		
+		iArrA[(dva + tri) / 5 - 1] = 99;
+		[iA] = iArrA;
+		print(iA);
+		print(eol);
+		// 99
+		
+		read(cA);  // unos a
+		read(cB);  // unos b
+		
+		print(cA, 2);
+		print(cB, 2);
+		print(eol);
+		//  a b
+		
+		cArrA = new char[3];
+		cArrA[0] = 'a';
+		cArrA[1] = 'b';
+		cArrA[2] = 'c';
+		
+		cB = cArrA[1];
+		print(cB);
+		print(eol);
+		// b
+		
+		[cA, cB] = cArrA;
+		print(cA, 2);
+		print(cB, 2);
+		print(eol);
+		//  a b
+		
+	//	[,,,,,,iA,] = iArrA;
+		// runtime error
+	}
+
+}

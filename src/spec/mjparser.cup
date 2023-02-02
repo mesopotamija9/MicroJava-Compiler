@@ -1,0 +1,474 @@
+
+
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+
+	boolean errorDetected;
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+    	errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+
+
+:}
+
+init with {:
+	errorDetected = false;
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+terminal String IDENT;
+terminal Integer INT_LITERAL;
+terminal Character CHAR_LITERAL;
+terminal Boolean BOOL_LITERAL;
+
+terminal String EQUAL_LOGIC;
+terminal String NOT_EQUAL;
+terminal String GREATER_THAN;
+terminal String GREATER_OR_EQUAL;
+terminal String LESS_THAN;
+terminal String LESS_OR_EQUAL;
+
+terminal String PLUS;
+terminal String MINUS;
+terminal String MULTIPLY;
+terminal String DIVIDE;
+terminal String MOD;
+
+terminal PROGRAM, BREAK, CLASS, ENUM, ELSE, CONST, IF, DO, WHILE, NEW, PRINT, READ;
+terminal RETURN, VOID, EXTENDS, CONTINUE, FOREACH;
+terminal AND, OR, EQUAL_ASSIGN, INCREMENT, DECREMENT;
+terminal SEMICOLON, COLON, COMMA, DOT, OPEN_PARENTHESIS, CLOSE_PARENTHESIS;
+terminal OPEN_BRACKET, CLOSE_BRACKET, OPEN_BRACE, CLOSE_BRACE, LAMBDA;
+
+nonterminal DeclL, MethodDeclL, DeclE, VarDecl, ClassDecl;
+nonterminal VarDeclMultip, VarDeclL, StatementL;
+nonterminal FormParsInMethodCloseParenthesis, FormPars, FormParsMultiple;
+nonterminal ActParsMultiple;
+nonterminal ConstructAndMethods, ConstructorDecl, ConstructorDeclL;
+nonterminal Label, Assignop;
+
+nonterminal ClassVarDecl, ClassVarDeclMultip, ClassVarName, ClassVarDeclL;
+
+nonterminal ClassTypeExtend;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgramName, VarName, VarArrayName,
+			ConstName, ConstDecl, ConstDeclL, LiteralE,
+			MethodDecl, MethodNameType, MethodNameVoid,
+			ParTypeName,
+			Designator, DesignatorMultiple, DesignatorStmAssign, DesignatorStatement,
+			Statement, DesignatorL,
+			ActPars,
+			Relop,
+			WhileKeyWord, BreakKeyWord, ContinueKeyWord, ReturnKeyWord, ForeachKeyWord,
+			DesigDot,
+			FunctionCallName,
+			Mulop, Addop,
+			IfKeyWord, IfThenEnd, CondOrEnd, CondEnd, 
+			WhileCondStart, WhileCondEnd, WhileEnd,
+			ForEachCurrName, ForEachEnd
+			
+			
+			
+				
+				;
+
+
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Expr, Factor, Term, MulopFact,
+			AddopTerm,
+			CondFact, CondFactMultiple, CondTerm, CondTermMultiple, Condition,
+			CondCloseParenthesis,
+			MinusTerm
+
+			;
+
+
+precedence left ELSE;
+
+
+
+Program ::= (Program) PROGRAM ProgramName:p DeclL OPEN_BRACE MethodDeclL CLOSE_BRACE;
+
+ProgramName ::= (ProgramName) IDENT:programName;
+
+DeclL ::= (DeclList) DeclL DeclE
+		|
+		(NoDeclList) /* epsilon */
+			
+		;
+
+DeclE ::= (DeclElementConst) ConstDecl
+		|
+		(DeclElementVar) VarDecl
+		|
+		(DeclElementBool) ClassDecl
+		;
+
+ConstDecl ::= (ConstDeclaration) CONST Type ConstName:constName EQUAL_ASSIGN LiteralE:literalValue ConstDeclL SEMICOLON;
+
+
+LiteralE ::= (LiteralElementInt) INT_LITERAL:literalValue
+			|
+			(LiteralElementChar) CHAR_LITERAL:literalValue
+			|
+			(LiteralElementBool) BOOL_LITERAL:literalValue
+			;
+			
+ConstDeclL ::= (ConstDeclList) ConstDeclL COMMA ConstName:constName EQUAL_ASSIGN LiteralE:literalValue
+			|
+			(NoConstDeclList) /* epsilon */
+			;
+			
+ConstName ::= (ConstName) IDENT:constName;
+			
+VarDecl ::= (VarDeclaration) Type VarName VarDeclMultip SEMICOLON
+		|
+		error SEMICOLON:l
+		{: parser.report_error("Izvrsen oporavak u okviru deklaracije promenljive na liniji " + lleft, null); :}
+		;
+
+
+VarDeclMultip ::= (VarDeclMultiple) VarDeclMultip COMMA VarName
+				|
+				(NoVarDeclMultiple) /* epsilon */
+				;
+			
+VarName ::= (VariableName) IDENT:varName
+			|
+			(VariableArrayName) IDENT:varArrayName OPEN_BRACKET CLOSE_BRACKET
+			|
+			error:l
+			{: parser.report_error("Izvrsen oporavak u okviru deklaracije promenljive na liniji " + lleft, null);  :}
+			;
+			
+ClassDecl ::= (ClassDeclarationNoExtends) CLASS IDENT OPEN_BRACE ClassVarDeclL ConstructAndMethods CLOSE_BRACE
+			|
+			(ClassDeclarationWithExtends) CLASS IDENT EXTENDS ClassTypeExtend ClassVarDeclL ConstructAndMethods CLOSE_BRACE
+			;
+			
+ClassTypeExtend ::= (ClassTypeExtends) Type OPEN_BRACE
+				|
+				error OPEN_BRACE:l
+				{: parser.report_error("Izvrsen oporavak u okviru deklaracije prosirenja natklase na liniji " + lleft, null);  :}
+				;
+			
+ClassVarDecl ::= (ClassVarDeclaration) Type ClassVarName ClassVarDeclMultip SEMICOLON
+		|
+		error SEMICOLON:l
+		{: parser.report_error("Izvrsen oporavak u okviru deklaracije polja klase na liniji " + lleft, null); :}
+		|
+		error:l
+		{: parser.report_error("Izvrsen oporavak u okviru deklaracije polja klase na liniji " + lleft, null); :}
+		
+		;
+
+ClassVarDeclMultip ::= (ClassVarDeclMultiple) ClassVarDeclMultip COMMA ClassVarName
+				|
+				(NoClassVarDeclMultiple) /* epsilon */
+				;
+				
+ClassVarName ::= (ClassVarNamee) IDENT
+			|
+			(ClassVarArrayNamee) IDENT OPEN_BRACKET CLOSE_BRACKET
+			;
+			
+ClassVarDeclL ::= (ClassVarDeclList) ClassVarDeclL ClassVarDecl
+			|
+			(NoClassVarDeclList) /* epsilon */
+			;
+			
+ConstructAndMethods ::= (ConstructorsAndMethods) OPEN_BRACE ConstructorDeclL MethodDeclL CLOSE_BRACE
+					|
+					(NoConstructorsAndMethods) /* epsilon */
+					;	
+			
+ConstructorDecl ::= (ConstructorDeclaration) IDENT OPEN_PARENTHESIS FormPars CLOSE_PARENTHESIS VarDeclL OPEN_BRACE StatementL CLOSE_BRACE;
+			
+ConstructorDeclL ::= (ConstructorDeclList) ConstructorDeclL ConstructorDecl
+				|
+				(NoConstructorDeclList) /* epsilon */
+				;
+			
+MethodDecl ::= (MethodDeclarationType) Type MethodNameType OPEN_PARENTHESIS FormPars CLOSE_PARENTHESIS VarDeclL OPEN_BRACE StatementL CLOSE_BRACE
+			|
+			(MethodDeclarationVoid) VOID MethodNameVoid OPEN_PARENTHESIS FormPars CLOSE_PARENTHESIS VarDeclL OPEN_BRACE StatementL CLOSE_BRACE
+			;
+			
+MethodNameType ::= (MethodNameType) IDENT:methodName;
+
+MethodNameVoid ::= (MethodNameVoid) IDENT:methodName;
+		
+VarDeclL ::= (VarDeclList) VarDeclL VarDecl
+			|
+			(NoVarDeclList) /* epsilon */
+			;
+
+MethodDeclL ::= (MethodDeclList) MethodDecl MethodDeclL
+			|
+			(NoMethodDeclList) /* epsilon */
+			;
+
+StatementL ::= (StatementList) StatementL Statement
+			|
+			(NoStatementList) /* epsilon */
+			;
+
+FormPars ::= (FormParams) ParTypeName FormParsMultiple
+		|
+		(NoFormParams) /* epsilon */
+		;
+
+ParTypeName ::= (ParamTypeName) Type IDENT:paramName
+		|
+		(ParamArrayTypeName) Type IDENT:paramArrayName OPEN_BRACKET CLOSE_BRACKET
+		|
+		error:l
+		{: parser.report_error("Izvrsen oporavak u okviru formalnog parametra funkcije na liniji " + lleft, null);  :}
+		;
+			
+FormParsMultiple ::= (FormParamsMultiple) FormParsMultiple COMMA ParTypeName
+					|
+					(NoFormParamsMultiple) /* epsilon */
+					;
+
+Type ::= (Type) IDENT:typeName;
+
+Statement ::= (StatementDesignatorStatement) DesignatorStatement
+			|
+			(StatementRead) READ OPEN_PARENTHESIS Designator CLOSE_PARENTHESIS SEMICOLON
+			|
+			(StatementPrintWithOneParam) PRINT OPEN_PARENTHESIS Expr CLOSE_PARENTHESIS SEMICOLON
+			|
+			(StatementPrintWithTwoParams) PRINT OPEN_PARENTHESIS Expr COMMA INT_LITERAL:intValue CLOSE_PARENTHESIS SEMICOLON
+			|
+			(StatementIf) IfKeyWord OPEN_PARENTHESIS CondCloseParenthesis Statement IfThenEnd
+			|
+			(StatementIfElse) IfKeyWord OPEN_PARENTHESIS CondCloseParenthesis Statement IfThenEnd ELSE Statement
+			|
+			(StatementWhile) WhileKeyWord OPEN_PARENTHESIS WhileCondStart Condition WhileCondEnd CLOSE_PARENTHESIS Statement WhileEnd
+			|
+			(StatementBreak) BreakKeyWord SEMICOLON
+			|
+			(StatementContinue) ContinueKeyWord SEMICOLON
+			|
+			(StatementReturn) ReturnKeyWord SEMICOLON
+			|
+			(StatementReturnExpr) ReturnKeyWord Expr SEMICOLON
+			|
+			(StatementForEach) DesigDot ForeachKeyWord OPEN_PARENTHESIS ForEachCurrName LAMBDA Statement ForEachEnd CLOSE_PARENTHESIS SEMICOLON
+			|
+			(StatementInBraces) OPEN_BRACE StatementL CLOSE_BRACE
+			;
+			
+WhileKeyWord ::= (WhileKeyWord) WHILE;
+
+BreakKeyWord ::= (BreakKeyWord) BREAK;
+
+ContinueKeyWord ::= (ContinueKeyWord) CONTINUE;
+
+ReturnKeyWord ::= (ReturnKeyWord) RETURN;
+
+ForeachKeyWord ::= (ForeachKeyWord) FOREACH;
+
+IfKeyWord ::= (IfKeyWord) IF;
+
+IfThenEnd ::= (IfThenEnd) /* epsilon */;
+
+WhileEnd ::= (WhileEnd) /* epsilon */;
+
+WhileCondStart ::= (WhileCondStart) /* epsilon */;
+
+WhileCondEnd ::= (WhileCondEnd) /* epsilon */;
+
+ForEachCurrName ::= (ForEachCurrName) IDENT:name;
+
+ForEachEnd ::= (ForEachEnd) /* epsilon */;
+
+			
+CondCloseParenthesis ::= (ConditionCloseParenthesis) Condition CLOSE_PARENTHESIS CondEnd
+						|
+						error CLOSE_PARENTHESIS:l
+						{: parser.report_error("Izvrsen oporavak u okviru logickog izraza unutar if konstrukcije do na liniji " + lleft, null); :}
+						;
+						
+CondEnd ::= (CondEnd) /* epsilon */;
+			
+DesignatorStatement ::= (DesignatorStmtAssign) DesignatorStmAssign
+					|
+					(DesignatorStatementDesignatorFirstInBrackets) OPEN_BRACKET Designator DesignatorL CLOSE_BRACKET EQUAL_ASSIGN Designator SEMICOLON
+					|
+					(DesignatorStatementCommaFirstInBrackets) OPEN_BRACKET DesignatorL CLOSE_BRACKET EQUAL_ASSIGN Designator SEMICOLON
+					|
+					(DesignatorStatementIncrement) Designator INCREMENT SEMICOLON
+					|
+					(DesignatorStatementDecrement) Designator DECREMENT SEMICOLON
+					|
+					(DesignatorStatementFunctionCallNoParams) FunctionCallName OPEN_PARENTHESIS CLOSE_PARENTHESIS SEMICOLON
+					|
+					(DesignatorStatementFunctionCallWithParams) FunctionCallName OPEN_PARENTHESIS ActPars CLOSE_PARENTHESIS SEMICOLON
+					;
+					
+FunctionCallName ::= (FunctionCallName) Designator;
+					
+DesignatorStmAssign ::= (DesignatorStatementAssign) Designator Assignop Expr SEMICOLON
+					|
+					error SEMICOLON:l
+					{: parser.report_error("Izvrsen oporavak u okviru dodele vrednosti na liniji " + lleft, null); :}
+					;
+
+DesignatorL ::= (DesignatorListCommaOnly) DesignatorL COMMA
+			|
+			(DesignatorListCommaAndDesignator) DesignatorL COMMA Designator
+			|
+			(NoDesignatorList) /* epsilon */
+			;
+			
+ActPars ::= (ActualParams) Expr ActParsMultiple;
+
+ActParsMultiple ::= (ActualParamsMultiple) ActParsMultiple COMMA Expr
+				|
+				(NoActualParamsMultiple) /* epsilon */
+				;
+				
+Condition ::= (Condition) CondTerm CondTermMultiple;
+
+CondTermMultiple ::= (ConditionTermMultiple) CondTermMultiple CondOrEnd OR CondTerm
+					|
+					(NoConditionTermMultiple) /* epsilon */
+					;
+					
+CondOrEnd ::= (ConditionOrEnd) /* epsilon */;
+					
+CondTerm ::= (ConditionTerm) CondFact CondFactMultiple;
+
+CondFactMultiple ::= (ConditionFactMultiple) CondFactMultiple AND CondFact
+					|
+					(NoConditionFactMultiple) /* epsilon */
+					;
+					
+CondFact ::= (ConditionFact) Expr
+			|
+			(ConditionFactRelopExpr) Expr Relop Expr
+			;
+
+Expr ::= (ExprWithMinus) MinusTerm AddopTerm
+		|
+		(ExprWithoutMinus) Term AddopTerm
+		;
+		
+MinusTerm ::= (MinusTerm) MINUS Term;
+
+AddopTerm ::= (AddopTerminal) AddopTerm Addop Term
+			|
+			(NoAddopTerminal) /* epsilon */
+			;
+
+Term ::= (Term) Factor MulopFact;
+
+MulopFact ::= (MulopFactor) MulopFact Mulop Factor
+			|
+			(NoMulopFactor) /* epsilon */
+			;
+
+Factor ::= (FactorIntLiteral) INT_LITERAL
+		|
+		(FactorCharLiteral) CHAR_LITERAL
+		|
+		(FactorBoolLiteral) BOOL_LITERAL
+		|
+		(FactorExpr) OPEN_PARENTHESIS Expr CLOSE_PARENTHESIS
+		|
+		(FactorNewTypeExpr) NEW Type OPEN_BRACKET Expr CLOSE_BRACKET
+		|
+		(FactorNewTypeActPars) NEW Type OPEN_PARENTHESIS ActPars CLOSE_PARENTHESIS
+		|
+		(FactorNewTypeNoActPars) NEW Type OPEN_PARENTHESIS CLOSE_PARENTHESIS
+		|
+		(FactorDesignator) Designator
+		|
+		(FactorFunctionCallNoParams) FunctionCallName OPEN_PARENTHESIS CLOSE_PARENTHESIS
+		|
+		(FactorFunctionCallWithParams) FunctionCallName OPEN_PARENTHESIS ActPars CLOSE_PARENTHESIS
+		;
+
+Designator ::= (Designator) DesignatorMultiple;
+			
+DesignatorMultiple ::= (DesignatorMul) DesignatorMultiple OPEN_BRACKET Expr CLOSE_BRACKET
+					|
+					(DesignatorIdent) IDENT:designatorName
+					|
+					(DesignatorDotIdent) DesigDot IDENT:designatorName
+					;
+
+DesigDot ::= (DesignatorDot) Designator DOT;
+
+Label ::= (Label) IDENT;
+
+Assignop ::= (AssignOperator) EQUAL_ASSIGN;
+
+Relop ::= (RelopEqualLogic) EQUAL_LOGIC:operation
+		|
+		(RelopNotEqual) NOT_EQUAL:operation
+		|
+		(RelopGreaterThan) GREATER_THAN:operation
+		|
+		(RelopGreaterOrEqual) GREATER_OR_EQUAL:operation
+		|
+		(RelopLessThan) LESS_THAN:operation
+		|
+		(RelopLessOrEqual) LESS_OR_EQUAL:operation
+		;
+
+Addop ::= (AddopPlus) PLUS:operation
+		|
+		(AddopMinus) MINUS:operation
+		;
+
+Mulop ::= (MuloptMultiply) MULTIPLY:operation
+		|
+		(MulopDivide) DIVIDE:operation
+		|
+		(MulopMod) MOD:operation
+		;
+
+
+
+
+
+
+
+
+
+

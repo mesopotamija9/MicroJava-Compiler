@@ -1,0 +1,61 @@
+INFO  21:29:22,451 - Compiling source file: D:\Programing Projects\PROG_P1\workspace\MJCompiler\test\treca_faza\sem_a_int_main.mj
+INFO  21:29:22,498 - #17 program
+INFO  21:29:22,498 - #2 sem_a_int_main
+INFO  21:29:22,498 - #47 {
+INFO  21:29:22,500 - #2 int
+INFO  21:29:22,500 - #2 main
+INFO  21:29:22,500 - #43 (
+INFO  21:29:22,501 - #44 )
+INFO  21:29:22,501 - #47 {
+INFO  21:29:22,502 - #48 }
+INFO  21:29:22,502 - #48 }
+INFO  21:29:22,507 - Program(
+  ProgramName(
+   sem_a_int_main
+  ) [ProgramName]
+  NoDeclList(
+  ) [NoDeclList]
+  MethodDeclList(
+    MethodDeclarationType(
+      Type(
+       int
+      ) [Type]
+      MethodNameType(
+       main
+      ) [MethodNameType]
+      NoFormParams(
+      ) [NoFormParams]
+      NoVarDeclList(
+      ) [NoVarDeclList]
+      NoStatementList(
+      ) [NoStatementList]
+    ) [MethodDeclarationType]
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+  ) [MethodDeclList]
+) [Program]
+INFO  21:29:22,508 - ===================================
+INFO  21:29:22,511 - Obradjuje se deklaracija funkcije main na liniji 6
+ERROR 21:29:22,511 - Main metoda mora imati povreatnu vrednost void
+INFO  21:29:22,511 - ===================================
+=====================SYMBOL TABLE DUMP=========================
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: bool, -1, -1 
+Prog sem_a_int_main: notype, 0, 1 
+   Meth main: int, 0, 0 
+
+
+
+ERROR 21:29:22,511 - Parsiranje nije uspesno zavrseno

@@ -1,0 +1,41 @@
+// Semanticka analiza A nivo
+
+program sem_a_A_nivo
+
+	const int iA = 1, iB = 2;
+	const char cA = 'a';
+	const int iC = 3;
+	const bool bA = true, bB = false, bC = false;
+
+	int a, b[] ,c ,d;
+	char k[];
+	bool x, y[];
+	int l;
+{
+	void func(int a, char b, bool c[], int d[], int e)
+		int func_x[];
+	{}
+	
+	void func2(){}
+	
+	int func3(){}
+
+	void main()
+		int x, y;
+	{
+		
+		k[b[b[b[b[0]]]]]--;
+		k[b[1]]++;
+		b[b[b[b[b[0]]]]]--;
+		
+		x = -b[b[0]];
+		
+		x = 2 + 2 * 3;
+		x = new int[2];
+		x = -iA;
+		y = b[1] * b[2];
+	    y = y[b[1]];
+	}
+}
+
+

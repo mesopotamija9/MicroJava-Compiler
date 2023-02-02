@@ -1,0 +1,29 @@
+// Oporavak od greske A nivo
+
+program oog_A_nivo
+
+	const int two = 2;
+
+	int a+;
+	
+	const char c = 'a';
+	
+	int a, b+ , c[] +, d, e[];
+	
+	const bool boolean = true;
+
+	
+{
+	void main()	
+	{
+		num = 2;
+		num a = 2;
+		num = a 2;
+		num =+= 2;
+		num = two;
+		num = /two;
+		num = two*;
+	}
+}
+
+

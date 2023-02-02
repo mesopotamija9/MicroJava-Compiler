@@ -1,0 +1,159 @@
+
+
+program sudoku_solver
+
+	int grid[];
+	const int n = 9;
+	int curr;
+{
+	void printSudokuGrid(int grid[])
+		int i, k;
+	{
+		i = 0;
+		while(i < len(grid)){
+			if (i == 0) {
+				k = 0;
+				while(k < (len(grid) / n + 4) * 2 - 1){
+					print('-');
+					k++;
+				}
+				print(eol);
+				
+				print('|');
+			}
+			
+			if (i == 27 || i == 27 + 3 * 9) {
+				k = 0;
+					while(k < (len(grid) / n + 4) * 2 - 1){
+						print('-');
+						k++;
+					}
+					print(eol);
+					print('|');
+			}
+			
+			print(grid[i], 2);
+			if ((i + 1) % 3 == 0){
+				print('|', 2);
+			}
+			if ((i + 1) % n == 0) {
+				print(eol);
+				if (i != len(grid) - 1) {
+					if (i + 1 != 27 && i + 1 != 27 + 3 * 9)
+					print('|');
+					
+				} else {
+					k = 0;
+					while(k < (len(grid) / n + 4) * 2 - 1){
+						print('-');
+						k++;
+					}
+					print(eol);
+				}
+			}
+			i++;
+		}
+	}
+
+	bool isSafe(int grid[], int row, int col, int num)
+		int x, startRow, startCol;
+		int i, j;
+	{
+		x = 0;
+		while(x < n){
+			if (grid[row * n + x] == num){
+				return false;
+			}
+			
+			x++;
+		}
+		
+		x = 0;
+		while(x < n){
+			if (grid[x * n + col] == num){
+				return false;
+			}
+			
+			x++;
+		}
+		
+		startRow = row - row % 3;
+		startCol = col - col % 3;
+		
+		i = 0;
+		j = 0;
+		while(i < 3){
+			while(j < 3){
+				if (grid[(i + startRow) * n + (j + startCol)] == num){
+					return false;
+				}
+				j++;
+			}
+			
+			i++;
+		}
+		
+		return true;
+	}
+
+	bool solveSudoku(int grid[], int row, int col)
+		int num;
+	{
+		if (row == n - 1 && col == n){
+			return true;
+		}
+		
+		if (col == n){
+			row++;
+			col = 0;
+		}
+		
+		if (grid[row * n + col] > 0){
+			return solveSudoku(grid, row, col + 1);
+		}
+		
+		num = 1;
+		while (num <= 9){
+			if (isSafe(grid, row, col, num)){
+				grid[row * n + col] = num;
+				
+				if (solveSudoku(grid, row, col + 1)){
+					return true;
+				}
+			}
+		
+			grid[row * n + col] = 0;
+			num++;
+		}
+		
+		return false;
+	}
+
+	void main()
+		int i, j;
+	{
+		grid = new int[n*n];
+		
+		i = 0;
+		j = 0;
+		while(i < n*n){
+			read(grid[i]);
+			i++;
+		}
+		
+		i = 0;
+		
+		printSudokuGrid(grid);
+		
+		if (solveSudoku(grid, 0, 0)){
+			print(eol);
+			print(eol);
+			printSudokuGrid(grid);
+		} else {
+			print('x');
+		}
+		
+	}
+	
+
+}

@@ -1,0 +1,118 @@
+INFO  22:04:53,157 - Compiling source file: D:\Programing Projects\PROG_P1\workspace\MJCompiler\test\prva_faza\leksicka_analiza.mj
+INFO  22:04:53,198 - #17 program
+INFO  22:04:53,198 - #2 leksicka_analiza
+INFO  22:04:53,198 - #2 cont
+INFO  22:04:53,199 - #2 char
+INFO  22:04:53,200 - #2 c
+ERROR 22:04:53,200 - 
+Sintaksna greska na liniji 3
+INFO  22:04:53,200 - #36 =
+INFO  22:04:53,200 - #4 a
+INFO  22:04:53,200 - #39 ;
+INFO  22:04:53,201 - #2 int
+INFO  22:04:53,201 - #2 k
+INFO  22:04:53,201 - #39 ;
+ERROR 22:04:53,201 - Izvrsen oporavak u okviru deklaracije promenljive na liniji 3
+Leksicka greska ($) u liniji 5 u koloni 8
+INFO  22:04:53,202 - #47 {
+INFO  22:04:53,202 - #30 void
+INFO  22:04:53,202 - #2 main
+INFO  22:04:53,202 - #43 (
+INFO  22:04:53,203 - #44 )
+INFO  22:04:53,203 - #2 int
+INFO  22:04:53,204 - #2 x
+INFO  22:04:53,204 - #39 ;
+INFO  22:04:53,204 - #47 {
+Leksicka greska (#) u liniji 11 u koloni 2
+INFO  22:04:53,204 - #48 }
+INFO  22:04:53,205 - #48 }
+INFO  22:04:53,209 - Program(
+  ProgramName(
+   leksicka_analiza
+  ) [ProgramName]
+  DeclList(
+    DeclList(
+      NoDeclList(
+      ) [NoDeclList]
+      DeclElementVar(
+        VarDeclaration(
+          Type(
+           cont
+          ) [Type]
+          VarNameDerived1(
+          ) [VarNameDerived1]
+          NoVarDeclMultiple(
+          ) [NoVarDeclMultiple]
+        ) [VarDeclaration]
+      ) [DeclElementVar]
+    ) [DeclList]
+    DeclElementVar(
+      VarDeclaration(
+        Type(
+         int
+        ) [Type]
+        VariableName(
+         k
+        ) [VariableName]
+        NoVarDeclMultiple(
+        ) [NoVarDeclMultiple]
+      ) [VarDeclaration]
+    ) [DeclElementVar]
+  ) [DeclList]
+  MethodDeclList(
+    MethodDeclarationVoid(
+      MethodNameVoid(
+       main
+      ) [MethodNameVoid]
+      NoFormParams(
+      ) [NoFormParams]
+      VarDeclList(
+        NoVarDeclList(
+        ) [NoVarDeclList]
+        VarDeclaration(
+          Type(
+           int
+          ) [Type]
+          VariableName(
+           x
+          ) [VariableName]
+          NoVarDeclMultiple(
+          ) [NoVarDeclMultiple]
+        ) [VarDeclaration]
+      ) [VarDeclList]
+      NoStatementList(
+      ) [NoStatementList]
+    ) [MethodDeclarationVoid]
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+  ) [MethodDeclList]
+) [Program]
+INFO  22:04:53,210 - ===================================
+ERROR 22:04:53,213 - Nije pronadjen tip 'cont' u tabeli simbola <- Greska na liniji 3
+INFO  22:04:53,213 - Deklaracija globalne promenljive -> Var k: int, 0, 0 na liniji 5
+INFO  22:04:53,213 - Obradjuje se deklaracija funkcije main na liniji 8
+INFO  22:04:53,213 - Deklaracija lokalne promenljive -> Var x: int, 0, 1 na liniji 9
+INFO  22:04:53,213 - ===================================
+=====================SYMBOL TABLE DUMP=========================
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: bool, -1, -1 
+Prog leksicka_analiza: notype, 0, 1 
+   Var k: int, 0, 0 
+   Meth main: notype, 0, 0 
+      Var x: int, 0, 1 
+
+
+
+ERROR 22:04:53,213 - Parsiranje nije uspesno zavrseno

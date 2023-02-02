@@ -1,0 +1,67 @@
+
+program even_odd
+
+	int arr[];
+	int a[];
+	char even[];
+	char odd[];
+{
+	void printStringLn(char string[])
+		int i;
+	{
+		i = 0;
+		
+		while(i < len(string)){
+			print(string[i]);
+			i++;
+		}
+		
+		print(eol);
+	}
+	
+	void printStringLnForEach(char string[])
+		char c;
+	{
+		
+		string.foreach(c => print(c););
+		
+		print(eol);
+	}
+	
+	void main()
+		char c;
+		int arr[];
+		int i;
+	{
+		even = new char[4];
+		even[0] = 'e';
+		even[1] = 'v';
+		even[2] = 'e';
+		even[3] = 'n';
+		
+		odd = new char[3];
+		odd[0] = 'o';
+		odd[1] = 'd';
+		odd[2] = 'd';
+		
+		arr = new int[100];
+		i = 0;
+		while(i < 100){
+			arr[i] = i;
+			i++;
+		}
+		
+		arr.foreach(i => {
+			if (i % 2 == 0) {
+				print(i);
+				print(':');
+				printStringLn(even);
+			} else {
+				print(i);
+				print(':');
+				printStringLnForEach(odd);
+			}
+		});
+	}
+
+}

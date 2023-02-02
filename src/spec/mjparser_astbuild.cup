@@ -1,0 +1,488 @@
+
+
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+
+	boolean errorDetected;
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+    	errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+
+
+:}
+
+init with {:
+	errorDetected = false;
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+terminal String IDENT;
+terminal Integer INT_LITERAL;
+terminal Character CHAR_LITERAL;
+terminal Boolean BOOL_LITERAL;
+
+terminal String EQUAL_LOGIC;
+terminal String NOT_EQUAL;
+terminal String GREATER_THAN;
+terminal String GREATER_OR_EQUAL;
+terminal String LESS_THAN;
+terminal String LESS_OR_EQUAL;
+
+terminal String PLUS;
+terminal String MINUS;
+terminal String MULTIPLY;
+terminal String DIVIDE;
+terminal String MOD;
+
+terminal PROGRAM, BREAK, CLASS, ENUM, ELSE, CONST, IF, DO, WHILE, NEW, PRINT, READ;
+terminal RETURN, VOID, EXTENDS, CONTINUE, FOREACH;
+terminal AND, OR, EQUAL_ASSIGN, INCREMENT, DECREMENT;
+terminal SEMICOLON, COLON, COMMA, DOT, OPEN_PARENTHESIS, CLOSE_PARENTHESIS;
+terminal OPEN_BRACKET, CLOSE_BRACKET, OPEN_BRACE, CLOSE_BRACE, LAMBDA;
+
+nonterminal DeclL DeclL;
+nonterminal MethodDeclL MethodDeclL;
+nonterminal DeclE DeclE;
+nonterminal VarDecl VarDecl;
+nonterminal ClassDecl ClassDecl;
+nonterminal VarDeclMultip VarDeclMultip;
+nonterminal VarDeclL VarDeclL;
+nonterminal StatementL StatementL;
+nonterminal FormParsInMethodCloseParenthesis FormParsInMethodCloseParenthesis;
+nonterminal FormPars FormPars;
+nonterminal FormParsMultiple FormParsMultiple;
+nonterminal ActParsMultiple ActParsMultiple;
+nonterminal ConstructAndMethods ConstructAndMethods;
+nonterminal ConstructorDecl ConstructorDecl;
+nonterminal ConstructorDeclL ConstructorDeclL;
+nonterminal Label Label;
+nonterminal Assignop Assignop;
+
+nonterminal ClassVarDecl ClassVarDecl;
+nonterminal ClassVarDeclMultip ClassVarDeclMultip;
+nonterminal ClassVarName ClassVarName;
+nonterminal ClassVarDeclL ClassVarDeclL;
+
+nonterminal ClassTypeExtend ClassTypeExtend;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgramName, VarName, VarArrayName,
+			ConstName, ConstDecl, ConstDeclL, LiteralE,
+			MethodDecl, MethodNameType, MethodNameVoid,
+			ParTypeName,
+			Designator, DesignatorMultiple, DesignatorStmAssign, DesignatorStatement,
+			Statement, DesignatorL,
+			ActPars,
+			Relop,
+			WhileKeyWord, BreakKeyWord, ContinueKeyWord, ReturnKeyWord, ForeachKeyWord,
+			DesigDot,
+			FunctionCallName,
+			Mulop, Addop,
+			IfKeyWord, IfThenEnd, CondOrEnd, CondEnd, 
+			WhileCondStart, WhileCondEnd, WhileEnd,
+			ForEachCurrName, ForEachEnd
+			
+			
+			
+				
+				;
+
+
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Expr, Factor, Term, MulopFact,
+			AddopTerm,
+			CondFact, CondFactMultiple, CondTerm, CondTermMultiple, Condition,
+			CondCloseParenthesis,
+			MinusTerm
+
+			;
+
+
+precedence left ELSE;
+
+
+
+Program ::= (Program) PROGRAM ProgramName:p DeclL:D1 OPEN_BRACE MethodDeclL:M2 CLOSE_BRACE {: RESULT=new Program(p, D1, M2); RESULT.setLine(pleft); :};
+
+ProgramName ::= (ProgramName) IDENT:programName {: RESULT=new ProgramName(programName); RESULT.setLine(programNameleft); :};
+
+DeclL ::= (DeclList) DeclL:D1 DeclE:D2 {: RESULT=new DeclList(D1, D2); RESULT.setLine(D1left); :}
+		|
+		(NoDeclList) {: RESULT=new NoDeclList(); :} /* epsilon */
+			
+		;
+
+DeclE ::= (DeclElementConst) ConstDecl:C1 {: RESULT=new DeclElementConst(C1); RESULT.setLine(C1left); :}
+		|
+		(DeclElementVar) VarDecl:V1 {: RESULT=new DeclElementVar(V1); RESULT.setLine(V1left); :}
+		|
+		(DeclElementBool) ClassDecl:C1 {: RESULT=new DeclElementBool(C1); RESULT.setLine(C1left); :}
+		;
+
+ConstDecl ::= (ConstDeclaration) CONST Type:T1 ConstName:constName EQUAL_ASSIGN LiteralE:literalValue ConstDeclL:C2 SEMICOLON {: RESULT=new ConstDeclaration(T1, constName, literalValue, C2); RESULT.setLine(T1left); :};
+
+
+LiteralE ::= (LiteralElementInt) INT_LITERAL:literalValue {: RESULT=new LiteralElementInt(literalValue); RESULT.setLine(literalValueleft); :}
+			|
+			(LiteralElementChar) CHAR_LITERAL:literalValue {: RESULT=new LiteralElementChar(literalValue); RESULT.setLine(literalValueleft); :}
+			|
+			(LiteralElementBool) BOOL_LITERAL:literalValue {: RESULT=new LiteralElementBool(literalValue); RESULT.setLine(literalValueleft); :}
+			;
+			
+ConstDeclL ::= (ConstDeclList) ConstDeclL:C1 COMMA ConstName:constName EQUAL_ASSIGN LiteralE:literalValue {: RESULT=new ConstDeclList(C1, constName, literalValue); RESULT.setLine(C1left); :}
+			|
+			(NoConstDeclList) {: RESULT=new NoConstDeclList(); :} /* epsilon */
+			;
+			
+ConstName ::= (ConstName) IDENT:constName {: RESULT=new ConstName(constName); RESULT.setLine(constNameleft); :};
+			
+VarDecl ::= (VarDeclaration) Type:T1 VarName:V2 VarDeclMultip:V3 SEMICOLON {: RESULT=new VarDeclaration(T1, V2, V3); RESULT.setLine(T1left); :}
+		|
+		error SEMICOLON:l
+		{: parser.report_error("Izvrsen oporavak u okviru deklaracije promenljive na liniji " + lleft, null); :} {: RESULT=new VarDeclDerived1(); :}
+		;
+
+
+VarDeclMultip ::= (VarDeclMultiple) VarDeclMultip:V1 COMMA VarName:V2 {: RESULT=new VarDeclMultiple(V1, V2); RESULT.setLine(V1left); :}
+				|
+				(NoVarDeclMultiple) {: RESULT=new NoVarDeclMultiple(); :} /* epsilon */
+				;
+			
+VarName ::= (VariableName) IDENT:varName {: RESULT=new VariableName(varName); RESULT.setLine(varNameleft); :}
+			|
+			(VariableArrayName) IDENT:varArrayName OPEN_BRACKET CLOSE_BRACKET {: RESULT=new VariableArrayName(varArrayName); RESULT.setLine(varArrayNameleft); :}
+			|
+			error:l
+			{: parser.report_error("Izvrsen oporavak u okviru deklaracije promenljive na liniji " + lleft, null);  :} {: RESULT=new VarNameDerived1(); :}
+			;
+			
+ClassDecl ::= (ClassDeclarationNoExtends) CLASS IDENT:I1 OPEN_BRACE ClassVarDeclL:C2 ConstructAndMethods:C3 CLOSE_BRACE {: RESULT=new ClassDeclarationNoExtends(I1, C2, C3); RESULT.setLine(I1left); :}
+			|
+			(ClassDeclarationWithExtends) CLASS IDENT:I1 EXTENDS ClassTypeExtend:C2 ClassVarDeclL:C3 ConstructAndMethods:C4 CLOSE_BRACE {: RESULT=new ClassDeclarationWithExtends(I1, C2, C3, C4); RESULT.setLine(I1left); :}
+			;
+			
+ClassTypeExtend ::= (ClassTypeExtends) Type:T1 OPEN_BRACE {: RESULT=new ClassTypeExtends(T1); RESULT.setLine(T1left); :}
+				|
+				error OPEN_BRACE:l
+				{: parser.report_error("Izvrsen oporavak u okviru deklaracije prosirenja natklase na liniji " + lleft, null);  :} {: RESULT=new ClassTypeExtendDerived1(); :}
+				;
+			
+ClassVarDecl ::= (ClassVarDeclaration) Type:T1 ClassVarName:C2 ClassVarDeclMultip:C3 SEMICOLON {: RESULT=new ClassVarDeclaration(T1, C2, C3); RESULT.setLine(T1left); :}
+		|
+		error SEMICOLON:l
+		{: parser.report_error("Izvrsen oporavak u okviru deklaracije polja klase na liniji " + lleft, null); :} {: RESULT=new ClassVarDeclDerived1(); :}
+		|
+		error:l
+		{: parser.report_error("Izvrsen oporavak u okviru deklaracije polja klase na liniji " + lleft, null); :} {: RESULT=new ClassVarDeclDerived2(); :}
+		
+		;
+
+ClassVarDeclMultip ::= (ClassVarDeclMultiple) ClassVarDeclMultip:C1 COMMA ClassVarName:C2 {: RESULT=new ClassVarDeclMultiple(C1, C2); RESULT.setLine(C1left); :}
+				|
+				(NoClassVarDeclMultiple) {: RESULT=new NoClassVarDeclMultiple(); :} /* epsilon */
+				;
+				
+ClassVarName ::= (ClassVarNamee) IDENT:I1 {: RESULT=new ClassVarNamee(I1); RESULT.setLine(I1left); :}
+			|
+			(ClassVarArrayNamee) IDENT:I1 OPEN_BRACKET CLOSE_BRACKET {: RESULT=new ClassVarArrayNamee(I1); RESULT.setLine(I1left); :}
+			;
+			
+ClassVarDeclL ::= (ClassVarDeclList) ClassVarDeclL:C1 ClassVarDecl:C2 {: RESULT=new ClassVarDeclList(C1, C2); RESULT.setLine(C1left); :}
+			|
+			(NoClassVarDeclList) {: RESULT=new NoClassVarDeclList(); :} /* epsilon */
+			;
+			
+ConstructAndMethods ::= (ConstructorsAndMethods) OPEN_BRACE ConstructorDeclL:C1 MethodDeclL:M2 CLOSE_BRACE {: RESULT=new ConstructorsAndMethods(C1, M2); RESULT.setLine(C1left); :}
+					|
+					(NoConstructorsAndMethods) {: RESULT=new NoConstructorsAndMethods(); :} /* epsilon */
+					;	
+			
+ConstructorDecl ::= (ConstructorDeclaration) IDENT:I1 OPEN_PARENTHESIS FormPars:F2 CLOSE_PARENTHESIS VarDeclL:V3 OPEN_BRACE StatementL:S4 CLOSE_BRACE {: RESULT=new ConstructorDeclaration(I1, F2, V3, S4); RESULT.setLine(I1left); :};
+			
+ConstructorDeclL ::= (ConstructorDeclList) ConstructorDeclL:C1 ConstructorDecl:C2 {: RESULT=new ConstructorDeclList(C1, C2); RESULT.setLine(C1left); :}
+				|
+				(NoConstructorDeclList) {: RESULT=new NoConstructorDeclList(); :} /* epsilon */
+				;
+			
+MethodDecl ::= (MethodDeclarationType) Type:T1 MethodNameType:M2 OPEN_PARENTHESIS FormPars:F3 CLOSE_PARENTHESIS VarDeclL:V4 OPEN_BRACE StatementL:S5 CLOSE_BRACE {: RESULT=new MethodDeclarationType(T1, M2, F3, V4, S5); RESULT.setLine(T1left); :}
+			|
+			(MethodDeclarationVoid) VOID MethodNameVoid:M1 OPEN_PARENTHESIS FormPars:F2 CLOSE_PARENTHESIS VarDeclL:V3 OPEN_BRACE StatementL:S4 CLOSE_BRACE {: RESULT=new MethodDeclarationVoid(M1, F2, V3, S4); RESULT.setLine(M1left); :}
+			;
+			
+MethodNameType ::= (MethodNameType) IDENT:methodName {: RESULT=new MethodNameType(methodName); RESULT.setLine(methodNameleft); :};
+
+MethodNameVoid ::= (MethodNameVoid) IDENT:methodName {: RESULT=new MethodNameVoid(methodName); RESULT.setLine(methodNameleft); :};
+		
+VarDeclL ::= (VarDeclList) VarDeclL:V1 VarDecl:V2 {: RESULT=new VarDeclList(V1, V2); RESULT.setLine(V1left); :}
+			|
+			(NoVarDeclList) {: RESULT=new NoVarDeclList(); :} /* epsilon */
+			;
+
+MethodDeclL ::= (MethodDeclList) MethodDecl:M1 MethodDeclL:M2 {: RESULT=new MethodDeclList(M1, M2); RESULT.setLine(M1left); :}
+			|
+			(NoMethodDeclList) {: RESULT=new NoMethodDeclList(); :} /* epsilon */
+			;
+
+StatementL ::= (StatementList) StatementL:S1 Statement:S2 {: RESULT=new StatementList(S1, S2); RESULT.setLine(S1left); :}
+			|
+			(NoStatementList) {: RESULT=new NoStatementList(); :} /* epsilon */
+			;
+
+FormPars ::= (FormParams) ParTypeName:P1 FormParsMultiple:F2 {: RESULT=new FormParams(P1, F2); RESULT.setLine(P1left); :}
+		|
+		(NoFormParams) {: RESULT=new NoFormParams(); :} /* epsilon */
+		;
+
+ParTypeName ::= (ParamTypeName) Type:T1 IDENT:paramName {: RESULT=new ParamTypeName(T1, paramName); RESULT.setLine(T1left); :}
+		|
+		(ParamArrayTypeName) Type:T1 IDENT:paramArrayName OPEN_BRACKET CLOSE_BRACKET {: RESULT=new ParamArrayTypeName(T1, paramArrayName); RESULT.setLine(T1left); :}
+		|
+		error:l
+		{: parser.report_error("Izvrsen oporavak u okviru formalnog parametra funkcije na liniji " + lleft, null);  :} {: RESULT=new ParTypeNameDerived1(); :}
+		;
+			
+FormParsMultiple ::= (FormParamsMultiple) FormParsMultiple:F1 COMMA ParTypeName:P2 {: RESULT=new FormParamsMultiple(F1, P2); RESULT.setLine(F1left); :}
+					|
+					(NoFormParamsMultiple) {: RESULT=new NoFormParamsMultiple(); :} /* epsilon */
+					;
+
+Type ::= (Type) IDENT:typeName {: RESULT=new Type(typeName); RESULT.setLine(typeNameleft); :};
+
+Statement ::= (StatementDesignatorStatement) DesignatorStatement:D1 {: RESULT=new StatementDesignatorStatement(D1); RESULT.setLine(D1left); :}
+			|
+			(StatementRead) READ OPEN_PARENTHESIS Designator:D1 CLOSE_PARENTHESIS SEMICOLON {: RESULT=new StatementRead(D1); RESULT.setLine(D1left); :}
+			|
+			(StatementPrintWithOneParam) PRINT OPEN_PARENTHESIS Expr:E1 CLOSE_PARENTHESIS SEMICOLON {: RESULT=new StatementPrintWithOneParam(E1); RESULT.setLine(E1left); :}
+			|
+			(StatementPrintWithTwoParams) PRINT OPEN_PARENTHESIS Expr:E1 COMMA INT_LITERAL:intValue CLOSE_PARENTHESIS SEMICOLON {: RESULT=new StatementPrintWithTwoParams(E1, intValue); RESULT.setLine(E1left); :}
+			|
+			(StatementIf) IfKeyWord:I1 OPEN_PARENTHESIS CondCloseParenthesis:C2 Statement:S3 IfThenEnd:I4 {: RESULT=new StatementIf(I1, C2, S3, I4); RESULT.setLine(I1left); :}
+			|
+			(StatementIfElse) IfKeyWord:I1 OPEN_PARENTHESIS CondCloseParenthesis:C2 Statement:S3 IfThenEnd:I4 ELSE Statement:S5 {: RESULT=new StatementIfElse(I1, C2, S3, I4, S5); RESULT.setLine(I1left); :}
+			|
+			(StatementWhile) WhileKeyWord:W1 OPEN_PARENTHESIS WhileCondStart:W2 Condition:C3 WhileCondEnd:W4 CLOSE_PARENTHESIS Statement:S5 WhileEnd:W6 {: RESULT=new StatementWhile(W1, W2, C3, W4, S5, W6); RESULT.setLine(W1left); :}
+			|
+			(StatementBreak) BreakKeyWord:B1 SEMICOLON {: RESULT=new StatementBreak(B1); RESULT.setLine(B1left); :}
+			|
+			(StatementContinue) ContinueKeyWord:C1 SEMICOLON {: RESULT=new StatementContinue(C1); RESULT.setLine(C1left); :}
+			|
+			(StatementReturn) ReturnKeyWord:R1 SEMICOLON {: RESULT=new StatementReturn(R1); RESULT.setLine(R1left); :}
+			|
+			(StatementReturnExpr) ReturnKeyWord:R1 Expr:E2 SEMICOLON {: RESULT=new StatementReturnExpr(R1, E2); RESULT.setLine(R1left); :}
+			|
+			(StatementForEach) DesigDot:D1 ForeachKeyWord:F2 OPEN_PARENTHESIS ForEachCurrName:F3 LAMBDA Statement:S4 ForEachEnd:F5 CLOSE_PARENTHESIS SEMICOLON {: RESULT=new StatementForEach(D1, F2, F3, S4, F5); RESULT.setLine(D1left); :}
+			|
+			(StatementInBraces) OPEN_BRACE StatementL:S1 CLOSE_BRACE {: RESULT=new StatementInBraces(S1); RESULT.setLine(S1left); :}
+			;
+			
+WhileKeyWord ::= (WhileKeyWord) WHILE {: RESULT=new WhileKeyWord(); :};
+
+BreakKeyWord ::= (BreakKeyWord) BREAK {: RESULT=new BreakKeyWord(); :};
+
+ContinueKeyWord ::= (ContinueKeyWord) CONTINUE {: RESULT=new ContinueKeyWord(); :};
+
+ReturnKeyWord ::= (ReturnKeyWord) RETURN {: RESULT=new ReturnKeyWord(); :};
+
+ForeachKeyWord ::= (ForeachKeyWord) FOREACH {: RESULT=new ForeachKeyWord(); :};
+
+IfKeyWord ::= (IfKeyWord) IF {: RESULT=new IfKeyWord(); :};
+
+IfThenEnd ::= (IfThenEnd) {: RESULT=new IfThenEnd(); :} /* epsilon */;
+
+WhileEnd ::= (WhileEnd) {: RESULT=new WhileEnd(); :} /* epsilon */;
+
+WhileCondStart ::= (WhileCondStart) {: RESULT=new WhileCondStart(); :} /* epsilon */;
+
+WhileCondEnd ::= (WhileCondEnd) {: RESULT=new WhileCondEnd(); :} /* epsilon */;
+
+ForEachCurrName ::= (ForEachCurrName) IDENT:name {: RESULT=new ForEachCurrName(name); RESULT.setLine(nameleft); :};
+
+ForEachEnd ::= (ForEachEnd) {: RESULT=new ForEachEnd(); :} /* epsilon */;
+
+			
+CondCloseParenthesis ::= (ConditionCloseParenthesis) Condition:C1 CLOSE_PARENTHESIS CondEnd:C2 {: RESULT=new ConditionCloseParenthesis(C1, C2); RESULT.setLine(C1left); :}
+						|
+						error CLOSE_PARENTHESIS:l
+						{: parser.report_error("Izvrsen oporavak u okviru logickog izraza unutar if konstrukcije do na liniji " + lleft, null); :} {: RESULT=new CondCloseParenthesisDerived1(); :}
+						;
+						
+CondEnd ::= (CondEnd) {: RESULT=new CondEnd(); :} /* epsilon */;
+			
+DesignatorStatement ::= (DesignatorStmtAssign) DesignatorStmAssign:D1 {: RESULT=new DesignatorStmtAssign(D1); RESULT.setLine(D1left); :}
+					|
+					(DesignatorStatementDesignatorFirstInBrackets) OPEN_BRACKET Designator:D1 DesignatorL:D2 CLOSE_BRACKET EQUAL_ASSIGN Designator:D3 SEMICOLON {: RESULT=new DesignatorStatementDesignatorFirstInBrackets(D1, D2, D3); RESULT.setLine(D1left); :}
+					|
+					(DesignatorStatementCommaFirstInBrackets) OPEN_BRACKET DesignatorL:D1 CLOSE_BRACKET EQUAL_ASSIGN Designator:D2 SEMICOLON {: RESULT=new DesignatorStatementCommaFirstInBrackets(D1, D2); RESULT.setLine(D1left); :}
+					|
+					(DesignatorStatementIncrement) Designator:D1 INCREMENT SEMICOLON {: RESULT=new DesignatorStatementIncrement(D1); RESULT.setLine(D1left); :}
+					|
+					(DesignatorStatementDecrement) Designator:D1 DECREMENT SEMICOLON {: RESULT=new DesignatorStatementDecrement(D1); RESULT.setLine(D1left); :}
+					|
+					(DesignatorStatementFunctionCallNoParams) FunctionCallName:F1 OPEN_PARENTHESIS CLOSE_PARENTHESIS SEMICOLON {: RESULT=new DesignatorStatementFunctionCallNoParams(F1); RESULT.setLine(F1left); :}
+					|
+					(DesignatorStatementFunctionCallWithParams) FunctionCallName:F1 OPEN_PARENTHESIS ActPars:A2 CLOSE_PARENTHESIS SEMICOLON {: RESULT=new DesignatorStatementFunctionCallWithParams(F1, A2); RESULT.setLine(F1left); :}
+					;
+					
+FunctionCallName ::= (FunctionCallName) Designator:D1 {: RESULT=new FunctionCallName(D1); RESULT.setLine(D1left); :};
+					
+DesignatorStmAssign ::= (DesignatorStatementAssign) Designator:D1 Assignop:A2 Expr:E3 SEMICOLON {: RESULT=new DesignatorStatementAssign(D1, A2, E3); RESULT.setLine(D1left); :}
+					|
+					error SEMICOLON:l
+					{: parser.report_error("Izvrsen oporavak u okviru dodele vrednosti na liniji " + lleft, null); :} {: RESULT=new DesignatorStmAssignDerived1(); :}
+					;
+
+DesignatorL ::= (DesignatorListCommaOnly) DesignatorL:D1 COMMA {: RESULT=new DesignatorListCommaOnly(D1); RESULT.setLine(D1left); :}
+			|
+			(DesignatorListCommaAndDesignator) DesignatorL:D1 COMMA Designator:D2 {: RESULT=new DesignatorListCommaAndDesignator(D1, D2); RESULT.setLine(D1left); :}
+			|
+			(NoDesignatorList) {: RESULT=new NoDesignatorList(); :} /* epsilon */
+			;
+			
+ActPars ::= (ActualParams) Expr:E1 ActParsMultiple:A2 {: RESULT=new ActualParams(E1, A2); RESULT.setLine(E1left); :};
+
+ActParsMultiple ::= (ActualParamsMultiple) ActParsMultiple:A1 COMMA Expr:E2 {: RESULT=new ActualParamsMultiple(A1, E2); RESULT.setLine(A1left); :}
+				|
+				(NoActualParamsMultiple) {: RESULT=new NoActualParamsMultiple(); :} /* epsilon */
+				;
+				
+Condition ::= (Condition) CondTerm:C1 CondTermMultiple:C2 {: RESULT=new Condition(C1, C2); RESULT.setLine(C1left); :};
+
+CondTermMultiple ::= (ConditionTermMultiple) CondTermMultiple:C1 CondOrEnd:C2 OR CondTerm:C3 {: RESULT=new ConditionTermMultiple(C1, C2, C3); RESULT.setLine(C1left); :}
+					|
+					(NoConditionTermMultiple) {: RESULT=new NoConditionTermMultiple(); :} /* epsilon */
+					;
+					
+CondOrEnd ::= (ConditionOrEnd) {: RESULT=new ConditionOrEnd(); :} /* epsilon */;
+					
+CondTerm ::= (ConditionTerm) CondFact:C1 CondFactMultiple:C2 {: RESULT=new ConditionTerm(C1, C2); RESULT.setLine(C1left); :};
+
+CondFactMultiple ::= (ConditionFactMultiple) CondFactMultiple:C1 AND CondFact:C2 {: RESULT=new ConditionFactMultiple(C1, C2); RESULT.setLine(C1left); :}
+					|
+					(NoConditionFactMultiple) {: RESULT=new NoConditionFactMultiple(); :} /* epsilon */
+					;
+					
+CondFact ::= (ConditionFact) Expr:E1 {: RESULT=new ConditionFact(E1); RESULT.setLine(E1left); :}
+			|
+			(ConditionFactRelopExpr) Expr:E1 Relop:R2 Expr:E3 {: RESULT=new ConditionFactRelopExpr(E1, R2, E3); RESULT.setLine(E1left); :}
+			;
+
+Expr ::= (ExprWithMinus) MinusTerm:M1 AddopTerm:A2 {: RESULT=new ExprWithMinus(M1, A2); RESULT.setLine(M1left); :}
+		|
+		(ExprWithoutMinus) Term:T1 AddopTerm:A2 {: RESULT=new ExprWithoutMinus(T1, A2); RESULT.setLine(T1left); :}
+		;
+		
+MinusTerm ::= (MinusTerm) MINUS:M1 Term:T2 {: RESULT=new MinusTerm(M1, T2); RESULT.setLine(M1left); :};
+
+AddopTerm ::= (AddopTerminal) AddopTerm:A1 Addop:A2 Term:T3 {: RESULT=new AddopTerminal(A1, A2, T3); RESULT.setLine(A1left); :}
+			|
+			(NoAddopTerminal) {: RESULT=new NoAddopTerminal(); :} /* epsilon */
+			;
+
+Term ::= (Term) Factor:F1 MulopFact:M2 {: RESULT=new Term(F1, M2); RESULT.setLine(F1left); :};
+
+MulopFact ::= (MulopFactor) MulopFact:M1 Mulop:M2 Factor:F3 {: RESULT=new MulopFactor(M1, M2, F3); RESULT.setLine(M1left); :}
+			|
+			(NoMulopFactor) {: RESULT=new NoMulopFactor(); :} /* epsilon */
+			;
+
+Factor ::= (FactorIntLiteral) INT_LITERAL:I1 {: RESULT=new FactorIntLiteral(I1); RESULT.setLine(I1left); :}
+		|
+		(FactorCharLiteral) CHAR_LITERAL:C1 {: RESULT=new FactorCharLiteral(C1); RESULT.setLine(C1left); :}
+		|
+		(FactorBoolLiteral) BOOL_LITERAL:B1 {: RESULT=new FactorBoolLiteral(B1); RESULT.setLine(B1left); :}
+		|
+		(FactorExpr) OPEN_PARENTHESIS Expr:E1 CLOSE_PARENTHESIS {: RESULT=new FactorExpr(E1); RESULT.setLine(E1left); :}
+		|
+		(FactorNewTypeExpr) NEW Type:T1 OPEN_BRACKET Expr:E2 CLOSE_BRACKET {: RESULT=new FactorNewTypeExpr(T1, E2); RESULT.setLine(T1left); :}
+		|
+		(FactorNewTypeActPars) NEW Type:T1 OPEN_PARENTHESIS ActPars:A2 CLOSE_PARENTHESIS {: RESULT=new FactorNewTypeActPars(T1, A2); RESULT.setLine(T1left); :}
+		|
+		(FactorNewTypeNoActPars) NEW Type:T1 OPEN_PARENTHESIS CLOSE_PARENTHESIS {: RESULT=new FactorNewTypeNoActPars(T1); RESULT.setLine(T1left); :}
+		|
+		(FactorDesignator) Designator:D1 {: RESULT=new FactorDesignator(D1); RESULT.setLine(D1left); :}
+		|
+		(FactorFunctionCallNoParams) FunctionCallName:F1 OPEN_PARENTHESIS CLOSE_PARENTHESIS {: RESULT=new FactorFunctionCallNoParams(F1); RESULT.setLine(F1left); :}
+		|
+		(FactorFunctionCallWithParams) FunctionCallName:F1 OPEN_PARENTHESIS ActPars:A2 CLOSE_PARENTHESIS {: RESULT=new FactorFunctionCallWithParams(F1, A2); RESULT.setLine(F1left); :}
+		;
+
+Designator ::= (Designator) DesignatorMultiple:D1 {: RESULT=new Designator(D1); RESULT.setLine(D1left); :};
+			
+DesignatorMultiple ::= (DesignatorMul) DesignatorMultiple:D1 OPEN_BRACKET Expr:E2 CLOSE_BRACKET {: RESULT=new DesignatorMul(D1, E2); RESULT.setLine(D1left); :}
+					|
+					(DesignatorIdent) IDENT:designatorName {: RESULT=new DesignatorIdent(designatorName); RESULT.setLine(designatorNameleft); :}
+					|
+					(DesignatorDotIdent) DesigDot:D1 IDENT:designatorName {: RESULT=new DesignatorDotIdent(D1, designatorName); RESULT.setLine(D1left); :}
+					;
+
+DesigDot ::= (DesignatorDot) Designator:D1 DOT {: RESULT=new DesignatorDot(D1); RESULT.setLine(D1left); :};
+
+Label ::= (Label) IDENT:I1 {: RESULT=new Label(I1); RESULT.setLine(I1left); :};
+
+Assignop ::= (AssignOperator) EQUAL_ASSIGN {: RESULT=new AssignOperator(); :};
+
+Relop ::= (RelopEqualLogic) EQUAL_LOGIC:operation {: RESULT=new RelopEqualLogic(operation); RESULT.setLine(operationleft); :}
+		|
+		(RelopNotEqual) NOT_EQUAL:operation {: RESULT=new RelopNotEqual(operation); RESULT.setLine(operationleft); :}
+		|
+		(RelopGreaterThan) GREATER_THAN:operation {: RESULT=new RelopGreaterThan(operation); RESULT.setLine(operationleft); :}
+		|
+		(RelopGreaterOrEqual) GREATER_OR_EQUAL:operation {: RESULT=new RelopGreaterOrEqual(operation); RESULT.setLine(operationleft); :}
+		|
+		(RelopLessThan) LESS_THAN:operation {: RESULT=new RelopLessThan(operation); RESULT.setLine(operationleft); :}
+		|
+		(RelopLessOrEqual) LESS_OR_EQUAL:operation {: RESULT=new RelopLessOrEqual(operation); RESULT.setLine(operationleft); :}
+		;
+
+Addop ::= (AddopPlus) PLUS:operation {: RESULT=new AddopPlus(operation); RESULT.setLine(operationleft); :}
+		|
+		(AddopMinus) MINUS:operation {: RESULT=new AddopMinus(operation); RESULT.setLine(operationleft); :}
+		;
+
+Mulop ::= (MuloptMultiply) MULTIPLY:operation {: RESULT=new MuloptMultiply(operation); RESULT.setLine(operationleft); :}
+		|
+		(MulopDivide) DIVIDE:operation {: RESULT=new MulopDivide(operation); RESULT.setLine(operationleft); :}
+		|
+		(MulopMod) MOD:operation {: RESULT=new MulopMod(operation); RESULT.setLine(operationleft); :}
+		;
+
+
+
+
+
+
+
+
+
+

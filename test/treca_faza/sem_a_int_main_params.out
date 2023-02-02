@@ -1,0 +1,89 @@
+INFO  21:30:37,105 - Compiling source file: D:\Programing Projects\PROG_P1\workspace\MJCompiler\test\treca_faza\sem_a_int_main_params.mj
+INFO  21:30:37,149 - #17 program
+INFO  21:30:37,149 - #2 sem_a_int_main_params
+INFO  21:30:37,149 - #47 {
+INFO  21:30:37,150 - #2 int
+INFO  21:30:37,150 - #2 main
+INFO  21:30:37,151 - #43 (
+INFO  21:30:37,151 - #2 int
+INFO  21:30:37,151 - #2 a
+INFO  21:30:37,151 - #41 ,
+INFO  21:30:37,152 - #2 char
+INFO  21:30:37,152 - #2 b
+INFO  21:30:37,152 - #45 [
+INFO  21:30:37,152 - #46 ]
+INFO  21:30:37,152 - #44 )
+INFO  21:30:37,152 - #47 {
+INFO  21:30:37,153 - #48 }
+INFO  21:30:37,154 - #48 }
+INFO  21:30:37,159 - Program(
+  ProgramName(
+   sem_a_int_main_params
+  ) [ProgramName]
+  NoDeclList(
+  ) [NoDeclList]
+  MethodDeclList(
+    MethodDeclarationType(
+      Type(
+       int
+      ) [Type]
+      MethodNameType(
+       main
+      ) [MethodNameType]
+      FormParams(
+        ParamTypeName(
+          Type(
+           int
+          ) [Type]
+         a
+        ) [ParamTypeName]
+        FormParamsMultiple(
+          NoFormParamsMultiple(
+          ) [NoFormParamsMultiple]
+          ParamArrayTypeName(
+            Type(
+             char
+            ) [Type]
+           b
+          ) [ParamArrayTypeName]
+        ) [FormParamsMultiple]
+      ) [FormParams]
+      NoVarDeclList(
+      ) [NoVarDeclList]
+      NoStatementList(
+      ) [NoStatementList]
+    ) [MethodDeclarationType]
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+  ) [MethodDeclList]
+) [Program]
+INFO  21:30:37,160 - ===================================
+INFO  21:30:37,164 - Obradjuje se deklaracija funkcije main na liniji 6
+INFO  21:30:37,164 - Deklaracija formalnog parametra funkcije -> Var a: int, 0, 1 na liniji 6
+INFO  21:30:37,164 - Deklaracija formalnog parametra funkcije -> Var b: Arr of char, 1, 1 na liniji 6
+ERROR 21:30:37,164 - Main metoda mora imati povreatnu vrednost void
+ERROR 21:30:37,164 - Main metoda ne sme imati ni jedan parametar
+INFO  21:30:37,164 - ===================================
+=====================SYMBOL TABLE DUMP=========================
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: bool, -1, -1 
+Prog sem_a_int_main_params: notype, 0, 1 
+   Meth main: int, 0, 2 
+      Var a: int, 0, 1 
+      Var b: Arr of char, 1, 1 
+
+
+
+ERROR 21:30:37,165 - Parsiranje nije uspesno zavrseno

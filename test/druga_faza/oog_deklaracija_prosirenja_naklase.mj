@@ -1,0 +1,66 @@
+// Oporavak od greske deklaracija prosirenja naklase
+
+program oog_deklaracija_prosirenja_naklase
+
+const int a = 4, b = 3;
+int c[];
+char d, e[];
+
+class Weapon
+{
+	 int damage;
+	 int ammo;
+	 int MAX_AMMO;
+	 bool empty;
+	{
+		void setDamage(int damage){ this.damage = damage; }
+		int getDamage() { return this.damage; }
+		
+		void setAmmo(int ammo) { this.ammo = ammo; }
+		int getAmmo() { return this.ammo; }
+		
+		void setMAX_AMMO(int MAX_AMMO) { this.MAX_AMMO = MAX_AMMO; }
+		int getMAX_AMMO() { return this.MAX_AMMO; }
+		
+		void shoot() {
+			if (ammo > 0) {
+				ammo--;
+				
+				if (ammo == 0) {
+					this.empty = true;
+				}
+			}
+		}
+		
+		void reload() {
+			if (this.ammo != this.MAX_AMMO) {
+				this.ammo = this.MAX_AMMO;
+				this.empty = false;
+			}
+		}
+	}
+}
+
+class AWP extends -> Weapon
+{
+	int scopeRadius;
+	{
+	
+	}
+}
+
+class AK_47 extends Weapon
+{
+	int rangeModifier;
+	{
+		void setRange_modifier(int rangeModifier) { this.rangeModifier = rangeModifier; }
+		int getRange_modifier() { return this.rangeModifier; }
+	}
+}
+
+{
+	void main()
+	{	
+
+	}
+}

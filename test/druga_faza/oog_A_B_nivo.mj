@@ -1,0 +1,81 @@
+// Oporavak od greske A i B nivo
+
+program oog_A_B_nivo
+
+	const int two = 2;
+
+	int a+;
+	
+	const char c = 'a';
+	
+	int a, b+ , c[] +, d, e[];
+	
+	const bool boolean = true;
+
+	int z;
+
+{
+	int func1_err(+){ return 1; }
+	void func2(int a, int b[]){}
+	void func3_err(a){}
+	bool func4_err(int a+, int b, char c[])
+		int x;
+	{
+		x = b;
+		if (x > 2) {
+			return true;
+		}
+		return false;
+	}
+	
+	char func5(int a)
+		char c;
+	{
+		if (a <= 0) {
+			c = '-';
+		} else {
+			c = '+';
+		}
+			
+		return c;
+	}
+	
+	void func6_err(int a[], char + b){}
+
+	void main()	
+	{
+		num = 2;
+		num a = 2;
+		num = a 2;
+		
+		
+		if (z /= 0)
+        {
+            z++;
+        }
+        
+        num =+= 2;
+		num = two;
+        
+        if (z == 0) {
+            z++;
+        } else {
+            z--;
+        }
+        
+        if (z =+= 0) {
+            z++;
+        } else {
+            z--;
+        }
+        
+        if (z == a 2) {}
+        if (z == a) {
+        	num = /two;
+			num = two*;
+        }
+        if (z 2 == a) {}
+	}
+}
+
+

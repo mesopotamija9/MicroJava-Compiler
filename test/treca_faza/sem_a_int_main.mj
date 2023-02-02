@@ -1,0 +1,7 @@
+// Semanticka analiza int main
+
+program sem_a_int_main
+	
+{
+	int main(){}
+}

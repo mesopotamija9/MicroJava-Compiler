@@ -1,0 +1,136 @@
+// Generisanje koda A i B nivo
+
+program gk_A_B_nivo
+	
+	int iA, iB, iC, iD, iArrA[];
+	char cA, cB;
+	bool bA, bB;
+	char cArrA[];
+	
+	const int dva = 2, tri = 3;
+	const char maloA = 'a';
+	const char velikoA = 'A';
+	const bool con_bTrue = true, con_bFalse = false;
+{
+	void func()
+		int x, y, z;
+	{
+		print(999);
+		print(eol);
+	}
+	
+	void printInt(int x){
+		print(x);
+		print(eol);
+	}
+	
+	void printChar(char c){
+		print(c);
+		print(eol);
+	}
+	
+	void printSum(int x, int y){
+		print(x+y);
+		print(eol);
+	}
+	
+	void printIncr(int x)
+		int incr;
+	{
+		incr = 1;
+		print(x + incr);
+		print(eol);
+	}
+	
+	int sum(int x, int y)
+	{
+		return x + y;
+	}
+	
+	int sumNoReturn(int x, int y){
+		
+	}
+	
+	void returnTest1_1(){
+		printInt(11);
+		
+		return;
+		
+		printInt(22);
+	}
+	
+	void returnTest1(){
+		printInt(1);
+		
+		returnTest1_1();
+		return;
+		
+		printInt(2);
+	}
+	
+	bool verify(int id){
+		print('v');
+		print('e');
+		print('r');
+		print('i');
+		print('f');
+		print('y');
+		print(id);
+		print(eol);
+		
+		return true;
+	}
+
+	void main()
+		int x, y, z;
+	{
+		func();
+		func();
+		func();
+		printInt(105 - 55);
+		printChar('a');
+		printSum(50, 20);
+		printIncr(12);
+		
+		printInt(sum(1,sum(1, 2)));
+	
+		sum(1,2);
+	
+		returnTest1();
+	
+	//	sumNoReturn(1,2); // trap
+	
+	
+		if (true && verify(1) && 1 < 3 && verify(2) && (20 - 4) + 1 != 10 && verify(3) && false && verify(4)){
+			printInt(1);
+		}
+		
+		printInt(4);
+	
+	
+		if (false || false || verify(3) && false){
+			printInt(1);
+		}
+	
+		printInt(4);
+		
+		if (false) {
+			printChar('t');
+		} else {
+			printChar('f');
+			
+			if (true) {
+				print(4);
+			}
+			
+			printInt(5);
+		}
+	
+		if (2 == 2 || false != true || true && true || false){
+			printInt(1);
+		}
+		
+		printInt(2);
+	}
+
+}

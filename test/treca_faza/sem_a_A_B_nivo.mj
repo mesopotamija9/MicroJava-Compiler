@@ -1,0 +1,200 @@
+// Semantica analiza A i B nivo
+
+program sem_a_A_B_nivo
+
+	// ConstDecl = "const" Type ident "=" (numConst | charConst | boolConst) ";".
+	const int con_iA = 'a';
+	const int con_iB = false;
+	const int con_iC = 12;
+	
+	const char con_cA = 'a';
+	const char con_cB = true;
+	const char con_cC = 12;
+	
+	const bool con_bA = 'a';
+	const bool con_bB = true;
+	const bool con_bC = 21;
+	
+	int con_cA;
+	
+	int iA, iB, iArrB[], iC, iArrA[];
+	int iArrC[];
+	
+	char cA, cB, cC, cArrA[], cArrB[], cArrC[];
+	bool bArrA[], bArrB[], bArrC[];
+	bool bA, bB;
+	bool bC;
+	
+	
+{
+	int func_no_return_runtime_error(){}
+	void func1(){}
+	void func_act_params_test(int a, bool b[], char c, int d[]){}
+	char func_char(char a){}
+	
+	void main()	
+		unknown_type var_with_unknown_type;
+	{
+		// Svako ime u programu mora biti deklarisano pre prvog korišćenja.
+		func_not_yet_declared();
+		
+		// DesignatorStatement = Designator Assignop Expr ";".
+		func1 = 2;
+		func1 = 'a';
+		func1 = false;
+		iA = 1;
+		iA = 'a';
+		iA = false;
+		cArrA = 'a';
+		cArrA[0] = 'a';
+		cArrA[0] = 1;
+		
+		// DesignatorStatement = Designator ("++" | "--") ";"
+		func1++;
+		cA++;
+		iA++;
+		bA--;
+		iA--;
+		bArrA++;
+		bArrA[0]++;
+		iArrA[0]--;
+		
+		// DesignatorStatement = Designator "(" [ActPars] ")" ";"
+		iA();
+		bArrA();
+		bArrA(iA);
+		
+		// DesignatorStatement = "[" [Designator] {"," [Designator]}"]" "=" Designator
+		[,,,,] = iArrA;
+		[iB,iA,,,] = iArrA;
+		[iB,,,,bA] = iArrA;
+		[iB,,,,iA] = bArrA;
+		[iB,,,,iA] = iA;
+		
+		
+		// Statement = "break".
+		// Statement = "continue"
+		break;
+		continue;
+		
+		while(true) {
+			break;
+			continue;
+		}
+		
+		iArrA.foreach(iA => { 
+			print(iA);
+			break;
+			continue;
+		});
+		
+		// Statement = "read" "(" Designator ")" ";".
+		read(func1);
+		read(iArrA);
+		read(iArrA[0]);
+		read(iA);
+		read(cA);
+		read(bA);
+		
+		// Statement = "print" "(" Expr ["," numConst] ")" ";"
+		print(1);
+		print(iA);
+		print('a');
+		print(cA);
+		print(true);
+		print(bA);
+		print(iArrA[0]);
+		print(iArrA);
+		
+		// Statement = "return" [Expr] .
+		return 1;
+		return 'a';
+		return false;
+		return iArrA;
+		return;
+		
+		// Statement = "if" "(" Condition ")" Statement ["else" Statement].
+		if (1){}
+		if ('a'){}
+		if (true){}
+		if (bArrA){}
+		if (1){} else{}
+		if ('a'){} else{}
+		if (true){} else{}
+		if (cArrA){}
+		
+		// Statement = "while" "(" Condition ")" Statement .
+		while(1){}
+		while('a'){}
+		while(1 == 1){}
+		
+		// Statement = Designator "." "foreach" "(" ident "=>" Statement ")" ";". 
+		bA.foreach(iA => print(iA););
+		iArrA.foreach(unknown_var => print(unknown_var););
+		iArrA.foreach(cA => print(cA););
+		
+		// ActPars = Expr {"," Expr}.
+		func_act_params_test();
+		func_act_params_test(iA);
+		func_act_params_test(iA, iB);
+		func_act_params_test(iA, iB, iC);
+		func_act_params_test(iA, iB, iC, bA, iC);
+		func_act_params_test(iA, iB, iC, bA);
+		func_act_params_test(iA, iB, cA, iArrA);
+		func_act_params_test(iA, bArrA, cA, iArrA);
+		func_act_params_test(((1 + 2) / iA), (1 + 2) / 2, false, iArrA);
+		func_act_params_test(1,1+2,bC, (iA * 2) - 1);
+		func_act_params_test(func_act_params_test(),1+2,iA / bC, (iA * 2) - 1);
+		func_act_params_test(1, bArrA, func_char(func_char(func_char(true))), iArrA);
+		func_act_params_test(1, bArrA, func_char(func_char(func_char('a'))), iArrA);
+		chr(1);
+		chr('a');
+		chr(true);
+		ord(1);
+		ord('a');
+		ord(true);
+		len(1);
+		len('a');
+		len(true);
+		len(iArrA);
+		len(bArrA);
+		
+		// CondFact = Expr Relop Expr.
+		if (iA == bA){}
+		if (iC >= cA){}
+		if (bA < false){}
+		if (iArrA == cArrB){}
+		if (iArrA < iArrB){}
+		if (iArrA <= iArrB){}
+		if (iArrA > iArrB){}
+		if (iArrA >= iArrB){}
+		if (iArrA != iArrB){}
+		if (iArrA == iArrB){}
+		
+		// Expr = "-" Term
+		iA = -bA;
+		iA = -cA;
+		iA = -iA;
+		iA = -'a' + 'a';
+		
+		// Expr = Expr Addop Term. 
+		// Term = Term Mulop Factor.
+		iA = 2 * 2 / 4 + 1 - 5 * cB;
+		iA = 2 * 2 / 4 + 1 - 5 * iB;
+		
+		// Factor = "new" Type "[" Expr "]"
+		iArrA = new int[cA];
+		iArrA = new int[false];
+		iArrA = new int[1 + 1 * 'a'];
+		iArrA = new int[1];
+		
+		// Designator = Designator "[" Expr "]"
+		iA = iA[0];
+		iA = iArrA['a'];
+		iA = iArrA[0];
+	}
+	
+	void func_not_yet_declared(){}
+}
+
+

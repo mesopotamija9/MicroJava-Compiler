@@ -1,0 +1,7 @@
+// Semanticka analiza int main params
+
+program sem_a_int_main_params
+	
+{
+	int main(int a, char b[]){}
+}

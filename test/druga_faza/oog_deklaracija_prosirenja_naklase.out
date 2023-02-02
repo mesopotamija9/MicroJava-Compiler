@@ -1,0 +1,1210 @@
+INFO  21:27:19,946 - Compiling source file: D:\Programing Projects\PROG_P1\workspace\MJCompiler\test\druga_faza\oog_deklaracija_prosirenja_naklase.mj
+INFO  21:27:20,019 - #17 program
+INFO  21:27:20,019 - #2 oog_deklaracija_prosirenja_naklase
+INFO  21:27:20,020 - #22 const
+INFO  21:27:20,020 - #2 int
+INFO  21:27:20,020 - #2 a
+INFO  21:27:20,021 - #36 =
+INFO  21:27:20,022 - #3 4
+INFO  21:27:20,022 - #41 ,
+INFO  21:27:20,022 - #2 b
+INFO  21:27:20,022 - #36 =
+INFO  21:27:20,022 - #3 3
+INFO  21:27:20,022 - #39 ;
+INFO  21:27:20,023 - #2 int
+INFO  21:27:20,023 - #2 c
+INFO  21:27:20,023 - #45 [
+INFO  21:27:20,023 - #46 ]
+INFO  21:27:20,023 - #39 ;
+INFO  21:27:20,024 - #2 char
+INFO  21:27:20,024 - #2 d
+INFO  21:27:20,025 - #41 ,
+INFO  21:27:20,025 - #2 e
+INFO  21:27:20,025 - #45 [
+INFO  21:27:20,025 - #46 ]
+INFO  21:27:20,025 - #39 ;
+INFO  21:27:20,025 - #19 class
+INFO  21:27:20,025 - #2 Weapon
+INFO  21:27:20,025 - #47 {
+INFO  21:27:20,025 - #2 int
+INFO  21:27:20,026 - #2 damage
+INFO  21:27:20,026 - #39 ;
+INFO  21:27:20,026 - #2 int
+INFO  21:27:20,026 - #2 ammo
+INFO  21:27:20,027 - #39 ;
+INFO  21:27:20,027 - #2 int
+INFO  21:27:20,027 - #2 MAX_AMMO
+INFO  21:27:20,027 - #39 ;
+INFO  21:27:20,027 - #2 bool
+INFO  21:27:20,027 - #2 empty
+INFO  21:27:20,027 - #39 ;
+INFO  21:27:20,027 - #47 {
+INFO  21:27:20,027 - #30 void
+INFO  21:27:20,027 - #2 setDamage
+INFO  21:27:20,027 - #43 (
+INFO  21:27:20,028 - #2 int
+INFO  21:27:20,028 - #2 damage
+INFO  21:27:20,028 - #44 )
+INFO  21:27:20,028 - #47 {
+INFO  21:27:20,029 - #2 this
+INFO  21:27:20,029 - #42 .
+INFO  21:27:20,030 - #2 damage
+INFO  21:27:20,030 - #36 =
+INFO  21:27:20,030 - #2 damage
+INFO  21:27:20,030 - #39 ;
+INFO  21:27:20,031 - #48 }
+INFO  21:27:20,032 - #2 int
+INFO  21:27:20,032 - #2 getDamage
+INFO  21:27:20,032 - #43 (
+INFO  21:27:20,032 - #44 )
+INFO  21:27:20,033 - #47 {
+INFO  21:27:20,033 - #29 return
+INFO  21:27:20,033 - #2 this
+INFO  21:27:20,033 - #42 .
+INFO  21:27:20,033 - #2 damage
+INFO  21:27:20,033 - #39 ;
+INFO  21:27:20,033 - #48 }
+INFO  21:27:20,033 - #30 void
+INFO  21:27:20,034 - #2 setAmmo
+INFO  21:27:20,034 - #43 (
+INFO  21:27:20,034 - #2 int
+INFO  21:27:20,034 - #2 ammo
+INFO  21:27:20,034 - #44 )
+INFO  21:27:20,034 - #47 {
+INFO  21:27:20,034 - #2 this
+INFO  21:27:20,034 - #42 .
+INFO  21:27:20,034 - #2 ammo
+INFO  21:27:20,034 - #36 =
+INFO  21:27:20,034 - #2 ammo
+INFO  21:27:20,034 - #39 ;
+INFO  21:27:20,034 - #48 }
+INFO  21:27:20,034 - #2 int
+INFO  21:27:20,034 - #2 getAmmo
+INFO  21:27:20,034 - #43 (
+INFO  21:27:20,034 - #44 )
+INFO  21:27:20,034 - #47 {
+INFO  21:27:20,034 - #29 return
+INFO  21:27:20,034 - #2 this
+INFO  21:27:20,034 - #42 .
+INFO  21:27:20,034 - #2 ammo
+INFO  21:27:20,034 - #39 ;
+INFO  21:27:20,035 - #48 }
+INFO  21:27:20,035 - #30 void
+INFO  21:27:20,035 - #2 setMAX_AMMO
+INFO  21:27:20,035 - #43 (
+INFO  21:27:20,035 - #2 int
+INFO  21:27:20,035 - #2 MAX_AMMO
+INFO  21:27:20,035 - #44 )
+INFO  21:27:20,035 - #47 {
+INFO  21:27:20,035 - #2 this
+INFO  21:27:20,035 - #42 .
+INFO  21:27:20,035 - #2 MAX_AMMO
+INFO  21:27:20,035 - #36 =
+INFO  21:27:20,035 - #2 MAX_AMMO
+INFO  21:27:20,035 - #39 ;
+INFO  21:27:20,035 - #48 }
+INFO  21:27:20,035 - #2 int
+INFO  21:27:20,035 - #2 getMAX_AMMO
+INFO  21:27:20,035 - #43 (
+INFO  21:27:20,035 - #44 )
+INFO  21:27:20,035 - #47 {
+INFO  21:27:20,035 - #29 return
+INFO  21:27:20,035 - #2 this
+INFO  21:27:20,035 - #42 .
+INFO  21:27:20,036 - #2 MAX_AMMO
+INFO  21:27:20,036 - #39 ;
+INFO  21:27:20,036 - #48 }
+INFO  21:27:20,036 - #30 void
+INFO  21:27:20,036 - #2 shoot
+INFO  21:27:20,036 - #43 (
+INFO  21:27:20,036 - #44 )
+INFO  21:27:20,036 - #47 {
+INFO  21:27:20,036 - #23 if
+INFO  21:27:20,036 - #43 (
+INFO  21:27:20,036 - #2 ammo
+INFO  21:27:20,037 - #8 >
+INFO  21:27:20,037 - #3 0
+INFO  21:27:20,037 - #44 )
+INFO  21:27:20,038 - #47 {
+INFO  21:27:20,039 - #2 ammo
+INFO  21:27:20,040 - #38 --
+INFO  21:27:20,040 - #39 ;
+INFO  21:27:20,040 - #23 if
+INFO  21:27:20,040 - #43 (
+INFO  21:27:20,040 - #2 ammo
+INFO  21:27:20,040 - #6 ==
+INFO  21:27:20,040 - #3 0
+INFO  21:27:20,040 - #44 )
+INFO  21:27:20,040 - #47 {
+INFO  21:27:20,040 - #2 this
+INFO  21:27:20,040 - #42 .
+INFO  21:27:20,040 - #2 empty
+INFO  21:27:20,040 - #36 =
+INFO  21:27:20,040 - #5 true
+INFO  21:27:20,040 - #39 ;
+INFO  21:27:20,041 - #48 }
+INFO  21:27:20,041 - #48 }
+INFO  21:27:20,041 - #48 }
+INFO  21:27:20,041 - #30 void
+INFO  21:27:20,041 - #2 reload
+INFO  21:27:20,042 - #43 (
+INFO  21:27:20,042 - #44 )
+INFO  21:27:20,042 - #47 {
+INFO  21:27:20,042 - #23 if
+INFO  21:27:20,042 - #43 (
+INFO  21:27:20,042 - #2 this
+INFO  21:27:20,042 - #42 .
+INFO  21:27:20,042 - #2 ammo
+INFO  21:27:20,042 - #7 !=
+INFO  21:27:20,042 - #2 this
+INFO  21:27:20,042 - #42 .
+INFO  21:27:20,042 - #2 MAX_AMMO
+INFO  21:27:20,042 - #44 )
+INFO  21:27:20,042 - #47 {
+INFO  21:27:20,043 - #2 this
+INFO  21:27:20,043 - #42 .
+INFO  21:27:20,043 - #2 ammo
+INFO  21:27:20,043 - #36 =
+INFO  21:27:20,043 - #2 this
+INFO  21:27:20,043 - #42 .
+INFO  21:27:20,043 - #2 MAX_AMMO
+INFO  21:27:20,043 - #39 ;
+INFO  21:27:20,043 - #2 this
+INFO  21:27:20,043 - #42 .
+INFO  21:27:20,043 - #2 empty
+INFO  21:27:20,043 - #36 =
+INFO  21:27:20,043 - #5 false
+INFO  21:27:20,044 - #39 ;
+INFO  21:27:20,044 - #48 }
+INFO  21:27:20,044 - #48 }
+INFO  21:27:20,044 - #48 }
+INFO  21:27:20,044 - #48 }
+INFO  21:27:20,044 - #19 class
+INFO  21:27:20,045 - #2 AWP
+INFO  21:27:20,045 - #31 extends
+INFO  21:27:20,045 - #13 -
+ERROR 21:27:20,045 - 
+Sintaksna greska na liniji 44
+INFO  21:27:20,045 - #8 >
+INFO  21:27:20,045 - #2 Weapon
+INFO  21:27:20,045 - #47 {
+INFO  21:27:20,046 - #2 int
+INFO  21:27:20,046 - #2 scopeRadius
+INFO  21:27:20,046 - #39 ;
+ERROR 21:27:20,046 - Izvrsen oporavak u okviru deklaracije prosirenja natklase na liniji 44
+INFO  21:27:20,046 - #47 {
+INFO  21:27:20,046 - #48 }
+INFO  21:27:20,046 - #48 }
+INFO  21:27:20,046 - #19 class
+INFO  21:27:20,047 - #2 AK_47
+INFO  21:27:20,047 - #31 extends
+INFO  21:27:20,047 - #2 Weapon
+INFO  21:27:20,047 - #47 {
+INFO  21:27:20,047 - #2 int
+INFO  21:27:20,047 - #2 rangeModifier
+INFO  21:27:20,047 - #39 ;
+INFO  21:27:20,047 - #47 {
+INFO  21:27:20,047 - #30 void
+INFO  21:27:20,047 - #2 setRange_modifier
+INFO  21:27:20,047 - #43 (
+INFO  21:27:20,047 - #2 int
+INFO  21:27:20,047 - #2 rangeModifier
+INFO  21:27:20,047 - #44 )
+INFO  21:27:20,047 - #47 {
+INFO  21:27:20,047 - #2 this
+INFO  21:27:20,047 - #42 .
+INFO  21:27:20,047 - #2 rangeModifier
+INFO  21:27:20,048 - #36 =
+INFO  21:27:20,048 - #2 rangeModifier
+INFO  21:27:20,048 - #39 ;
+INFO  21:27:20,048 - #48 }
+INFO  21:27:20,048 - #2 int
+INFO  21:27:20,048 - #2 getRange_modifier
+INFO  21:27:20,048 - #43 (
+INFO  21:27:20,048 - #44 )
+INFO  21:27:20,048 - #47 {
+INFO  21:27:20,048 - #29 return
+INFO  21:27:20,048 - #2 this
+INFO  21:27:20,048 - #42 .
+INFO  21:27:20,048 - #2 rangeModifier
+INFO  21:27:20,048 - #39 ;
+INFO  21:27:20,048 - #48 }
+INFO  21:27:20,048 - #48 }
+INFO  21:27:20,048 - #48 }
+INFO  21:27:20,048 - #47 {
+INFO  21:27:20,048 - #30 void
+INFO  21:27:20,048 - #2 main
+INFO  21:27:20,048 - #43 (
+INFO  21:27:20,048 - #44 )
+INFO  21:27:20,049 - #47 {
+INFO  21:27:20,049 - #48 }
+INFO  21:27:20,049 - #48 }
+INFO  21:27:20,055 - Program(
+  ProgramName(
+   oog_deklaracija_prosirenja_naklase
+  ) [ProgramName]
+  DeclList(
+    DeclList(
+      DeclList(
+        DeclList(
+          DeclList(
+            DeclList(
+              NoDeclList(
+              ) [NoDeclList]
+              DeclElementConst(
+                ConstDeclaration(
+                  Type(
+                   int
+                  ) [Type]
+                  ConstName(
+                   a
+                  ) [ConstName]
+                  LiteralElementInt(
+                   4
+                  ) [LiteralElementInt]
+                  ConstDeclList(
+                    NoConstDeclList(
+                    ) [NoConstDeclList]
+                    ConstName(
+                     b
+                    ) [ConstName]
+                    LiteralElementInt(
+                     3
+                    ) [LiteralElementInt]
+                  ) [ConstDeclList]
+                ) [ConstDeclaration]
+              ) [DeclElementConst]
+            ) [DeclList]
+            DeclElementVar(
+              VarDeclaration(
+                Type(
+                 int
+                ) [Type]
+                VariableArrayName(
+                 c
+                ) [VariableArrayName]
+                NoVarDeclMultiple(
+                ) [NoVarDeclMultiple]
+              ) [VarDeclaration]
+            ) [DeclElementVar]
+          ) [DeclList]
+          DeclElementVar(
+            VarDeclaration(
+              Type(
+               char
+              ) [Type]
+              VariableName(
+               d
+              ) [VariableName]
+              VarDeclMultiple(
+                NoVarDeclMultiple(
+                ) [NoVarDeclMultiple]
+                VariableArrayName(
+                 e
+                ) [VariableArrayName]
+              ) [VarDeclMultiple]
+            ) [VarDeclaration]
+          ) [DeclElementVar]
+        ) [DeclList]
+        DeclElementBool(
+          ClassDeclarationNoExtends(
+           Weapon
+            ClassVarDeclList(
+              ClassVarDeclList(
+                ClassVarDeclList(
+                  ClassVarDeclList(
+                    NoClassVarDeclList(
+                    ) [NoClassVarDeclList]
+                    ClassVarDeclaration(
+                      Type(
+                       int
+                      ) [Type]
+                      ClassVarNamee(
+                       damage
+                      ) [ClassVarNamee]
+                      NoClassVarDeclMultiple(
+                      ) [NoClassVarDeclMultiple]
+                    ) [ClassVarDeclaration]
+                  ) [ClassVarDeclList]
+                  ClassVarDeclaration(
+                    Type(
+                     int
+                    ) [Type]
+                    ClassVarNamee(
+                     ammo
+                    ) [ClassVarNamee]
+                    NoClassVarDeclMultiple(
+                    ) [NoClassVarDeclMultiple]
+                  ) [ClassVarDeclaration]
+                ) [ClassVarDeclList]
+                ClassVarDeclaration(
+                  Type(
+                   int
+                  ) [Type]
+                  ClassVarNamee(
+                   MAX_AMMO
+                  ) [ClassVarNamee]
+                  NoClassVarDeclMultiple(
+                  ) [NoClassVarDeclMultiple]
+                ) [ClassVarDeclaration]
+              ) [ClassVarDeclList]
+              ClassVarDeclaration(
+                Type(
+                 bool
+                ) [Type]
+                ClassVarNamee(
+                 empty
+                ) [ClassVarNamee]
+                NoClassVarDeclMultiple(
+                ) [NoClassVarDeclMultiple]
+              ) [ClassVarDeclaration]
+            ) [ClassVarDeclList]
+            ConstructorsAndMethods(
+              NoConstructorDeclList(
+              ) [NoConstructorDeclList]
+              MethodDeclList(
+                MethodDeclarationVoid(
+                  MethodNameVoid(
+                   setDamage
+                  ) [MethodNameVoid]
+                  FormParams(
+                    ParamTypeName(
+                      Type(
+                       int
+                      ) [Type]
+                     damage
+                    ) [ParamTypeName]
+                    NoFormParamsMultiple(
+                    ) [NoFormParamsMultiple]
+                  ) [FormParams]
+                  NoVarDeclList(
+                  ) [NoVarDeclList]
+                  StatementList(
+                    NoStatementList(
+                    ) [NoStatementList]
+                    StatementDesignatorStatement(
+                      DesignatorStmtAssign(
+                        DesignatorStatementAssign(
+                          Designator(
+                            DesignatorDotIdent(
+                              DesignatorDot(
+                                Designator(
+                                  DesignatorIdent(
+                                   this
+                                  ) [DesignatorIdent]
+                                ) [Designator]
+                              ) [DesignatorDot]
+                             damage
+                            ) [DesignatorDotIdent]
+                          ) [Designator]
+                          AssignOperator(
+                          ) [AssignOperator]
+                          ExprWithoutMinus(
+                            Term(
+                              FactorDesignator(
+                                Designator(
+                                  DesignatorIdent(
+                                   damage
+                                  ) [DesignatorIdent]
+                                ) [Designator]
+                              ) [FactorDesignator]
+                              NoMulopFactor(
+                              ) [NoMulopFactor]
+                            ) [Term]
+                            NoAddopTerminal(
+                            ) [NoAddopTerminal]
+                          ) [ExprWithoutMinus]
+                        ) [DesignatorStatementAssign]
+                      ) [DesignatorStmtAssign]
+                    ) [StatementDesignatorStatement]
+                  ) [StatementList]
+                ) [MethodDeclarationVoid]
+                MethodDeclList(
+                  MethodDeclarationType(
+                    Type(
+                     int
+                    ) [Type]
+                    MethodNameType(
+                     getDamage
+                    ) [MethodNameType]
+                    NoFormParams(
+                    ) [NoFormParams]
+                    NoVarDeclList(
+                    ) [NoVarDeclList]
+                    StatementList(
+                      NoStatementList(
+                      ) [NoStatementList]
+                      StatementReturnExpr(
+                        ReturnKeyWord(
+                        ) [ReturnKeyWord]
+                        ExprWithoutMinus(
+                          Term(
+                            FactorDesignator(
+                              Designator(
+                                DesignatorDotIdent(
+                                  DesignatorDot(
+                                    Designator(
+                                      DesignatorIdent(
+                                       this
+                                      ) [DesignatorIdent]
+                                    ) [Designator]
+                                  ) [DesignatorDot]
+                                 damage
+                                ) [DesignatorDotIdent]
+                              ) [Designator]
+                            ) [FactorDesignator]
+                            NoMulopFactor(
+                            ) [NoMulopFactor]
+                          ) [Term]
+                          NoAddopTerminal(
+                          ) [NoAddopTerminal]
+                        ) [ExprWithoutMinus]
+                      ) [StatementReturnExpr]
+                    ) [StatementList]
+                  ) [MethodDeclarationType]
+                  MethodDeclList(
+                    MethodDeclarationVoid(
+                      MethodNameVoid(
+                       setAmmo
+                      ) [MethodNameVoid]
+                      FormParams(
+                        ParamTypeName(
+                          Type(
+                           int
+                          ) [Type]
+                         ammo
+                        ) [ParamTypeName]
+                        NoFormParamsMultiple(
+                        ) [NoFormParamsMultiple]
+                      ) [FormParams]
+                      NoVarDeclList(
+                      ) [NoVarDeclList]
+                      StatementList(
+                        NoStatementList(
+                        ) [NoStatementList]
+                        StatementDesignatorStatement(
+                          DesignatorStmtAssign(
+                            DesignatorStatementAssign(
+                              Designator(
+                                DesignatorDotIdent(
+                                  DesignatorDot(
+                                    Designator(
+                                      DesignatorIdent(
+                                       this
+                                      ) [DesignatorIdent]
+                                    ) [Designator]
+                                  ) [DesignatorDot]
+                                 ammo
+                                ) [DesignatorDotIdent]
+                              ) [Designator]
+                              AssignOperator(
+                              ) [AssignOperator]
+                              ExprWithoutMinus(
+                                Term(
+                                  FactorDesignator(
+                                    Designator(
+                                      DesignatorIdent(
+                                       ammo
+                                      ) [DesignatorIdent]
+                                    ) [Designator]
+                                  ) [FactorDesignator]
+                                  NoMulopFactor(
+                                  ) [NoMulopFactor]
+                                ) [Term]
+                                NoAddopTerminal(
+                                ) [NoAddopTerminal]
+                              ) [ExprWithoutMinus]
+                            ) [DesignatorStatementAssign]
+                          ) [DesignatorStmtAssign]
+                        ) [StatementDesignatorStatement]
+                      ) [StatementList]
+                    ) [MethodDeclarationVoid]
+                    MethodDeclList(
+                      MethodDeclarationType(
+                        Type(
+                         int
+                        ) [Type]
+                        MethodNameType(
+                         getAmmo
+                        ) [MethodNameType]
+                        NoFormParams(
+                        ) [NoFormParams]
+                        NoVarDeclList(
+                        ) [NoVarDeclList]
+                        StatementList(
+                          NoStatementList(
+                          ) [NoStatementList]
+                          StatementReturnExpr(
+                            ReturnKeyWord(
+                            ) [ReturnKeyWord]
+                            ExprWithoutMinus(
+                              Term(
+                                FactorDesignator(
+                                  Designator(
+                                    DesignatorDotIdent(
+                                      DesignatorDot(
+                                        Designator(
+                                          DesignatorIdent(
+                                           this
+                                          ) [DesignatorIdent]
+                                        ) [Designator]
+                                      ) [DesignatorDot]
+                                     ammo
+                                    ) [DesignatorDotIdent]
+                                  ) [Designator]
+                                ) [FactorDesignator]
+                                NoMulopFactor(
+                                ) [NoMulopFactor]
+                              ) [Term]
+                              NoAddopTerminal(
+                              ) [NoAddopTerminal]
+                            ) [ExprWithoutMinus]
+                          ) [StatementReturnExpr]
+                        ) [StatementList]
+                      ) [MethodDeclarationType]
+                      MethodDeclList(
+                        MethodDeclarationVoid(
+                          MethodNameVoid(
+                           setMAX_AMMO
+                          ) [MethodNameVoid]
+                          FormParams(
+                            ParamTypeName(
+                              Type(
+                               int
+                              ) [Type]
+                             MAX_AMMO
+                            ) [ParamTypeName]
+                            NoFormParamsMultiple(
+                            ) [NoFormParamsMultiple]
+                          ) [FormParams]
+                          NoVarDeclList(
+                          ) [NoVarDeclList]
+                          StatementList(
+                            NoStatementList(
+                            ) [NoStatementList]
+                            StatementDesignatorStatement(
+                              DesignatorStmtAssign(
+                                DesignatorStatementAssign(
+                                  Designator(
+                                    DesignatorDotIdent(
+                                      DesignatorDot(
+                                        Designator(
+                                          DesignatorIdent(
+                                           this
+                                          ) [DesignatorIdent]
+                                        ) [Designator]
+                                      ) [DesignatorDot]
+                                     MAX_AMMO
+                                    ) [DesignatorDotIdent]
+                                  ) [Designator]
+                                  AssignOperator(
+                                  ) [AssignOperator]
+                                  ExprWithoutMinus(
+                                    Term(
+                                      FactorDesignator(
+                                        Designator(
+                                          DesignatorIdent(
+                                           MAX_AMMO
+                                          ) [DesignatorIdent]
+                                        ) [Designator]
+                                      ) [FactorDesignator]
+                                      NoMulopFactor(
+                                      ) [NoMulopFactor]
+                                    ) [Term]
+                                    NoAddopTerminal(
+                                    ) [NoAddopTerminal]
+                                  ) [ExprWithoutMinus]
+                                ) [DesignatorStatementAssign]
+                              ) [DesignatorStmtAssign]
+                            ) [StatementDesignatorStatement]
+                          ) [StatementList]
+                        ) [MethodDeclarationVoid]
+                        MethodDeclList(
+                          MethodDeclarationType(
+                            Type(
+                             int
+                            ) [Type]
+                            MethodNameType(
+                             getMAX_AMMO
+                            ) [MethodNameType]
+                            NoFormParams(
+                            ) [NoFormParams]
+                            NoVarDeclList(
+                            ) [NoVarDeclList]
+                            StatementList(
+                              NoStatementList(
+                              ) [NoStatementList]
+                              StatementReturnExpr(
+                                ReturnKeyWord(
+                                ) [ReturnKeyWord]
+                                ExprWithoutMinus(
+                                  Term(
+                                    FactorDesignator(
+                                      Designator(
+                                        DesignatorDotIdent(
+                                          DesignatorDot(
+                                            Designator(
+                                              DesignatorIdent(
+                                               this
+                                              ) [DesignatorIdent]
+                                            ) [Designator]
+                                          ) [DesignatorDot]
+                                         MAX_AMMO
+                                        ) [DesignatorDotIdent]
+                                      ) [Designator]
+                                    ) [FactorDesignator]
+                                    NoMulopFactor(
+                                    ) [NoMulopFactor]
+                                  ) [Term]
+                                  NoAddopTerminal(
+                                  ) [NoAddopTerminal]
+                                ) [ExprWithoutMinus]
+                              ) [StatementReturnExpr]
+                            ) [StatementList]
+                          ) [MethodDeclarationType]
+                          MethodDeclList(
+                            MethodDeclarationVoid(
+                              MethodNameVoid(
+                               shoot
+                              ) [MethodNameVoid]
+                              NoFormParams(
+                              ) [NoFormParams]
+                              NoVarDeclList(
+                              ) [NoVarDeclList]
+                              StatementList(
+                                NoStatementList(
+                                ) [NoStatementList]
+                                StatementIf(
+                                  IfKeyWord(
+                                  ) [IfKeyWord]
+                                  ConditionCloseParenthesis(
+                                    Condition(
+                                      ConditionTerm(
+                                        ConditionFactRelopExpr(
+                                          ExprWithoutMinus(
+                                            Term(
+                                              FactorDesignator(
+                                                Designator(
+                                                  DesignatorIdent(
+                                                   ammo
+                                                  ) [DesignatorIdent]
+                                                ) [Designator]
+                                              ) [FactorDesignator]
+                                              NoMulopFactor(
+                                              ) [NoMulopFactor]
+                                            ) [Term]
+                                            NoAddopTerminal(
+                                            ) [NoAddopTerminal]
+                                          ) [ExprWithoutMinus]
+                                          RelopGreaterThan(
+                                           >
+                                          ) [RelopGreaterThan]
+                                          ExprWithoutMinus(
+                                            Term(
+                                              FactorIntLiteral(
+                                               0
+                                              ) [FactorIntLiteral]
+                                              NoMulopFactor(
+                                              ) [NoMulopFactor]
+                                            ) [Term]
+                                            NoAddopTerminal(
+                                            ) [NoAddopTerminal]
+                                          ) [ExprWithoutMinus]
+                                        ) [ConditionFactRelopExpr]
+                                        NoConditionFactMultiple(
+                                        ) [NoConditionFactMultiple]
+                                      ) [ConditionTerm]
+                                      NoConditionTermMultiple(
+                                      ) [NoConditionTermMultiple]
+                                    ) [Condition]
+                                    CondEnd(
+                                    ) [CondEnd]
+                                  ) [ConditionCloseParenthesis]
+                                  StatementInBraces(
+                                    StatementList(
+                                      StatementList(
+                                        NoStatementList(
+                                        ) [NoStatementList]
+                                        StatementDesignatorStatement(
+                                          DesignatorStatementDecrement(
+                                            Designator(
+                                              DesignatorIdent(
+                                               ammo
+                                              ) [DesignatorIdent]
+                                            ) [Designator]
+                                          ) [DesignatorStatementDecrement]
+                                        ) [StatementDesignatorStatement]
+                                      ) [StatementList]
+                                      StatementIf(
+                                        IfKeyWord(
+                                        ) [IfKeyWord]
+                                        ConditionCloseParenthesis(
+                                          Condition(
+                                            ConditionTerm(
+                                              ConditionFactRelopExpr(
+                                                ExprWithoutMinus(
+                                                  Term(
+                                                    FactorDesignator(
+                                                      Designator(
+                                                        DesignatorIdent(
+                                                         ammo
+                                                        ) [DesignatorIdent]
+                                                      ) [Designator]
+                                                    ) [FactorDesignator]
+                                                    NoMulopFactor(
+                                                    ) [NoMulopFactor]
+                                                  ) [Term]
+                                                  NoAddopTerminal(
+                                                  ) [NoAddopTerminal]
+                                                ) [ExprWithoutMinus]
+                                                RelopEqualLogic(
+                                                 ==
+                                                ) [RelopEqualLogic]
+                                                ExprWithoutMinus(
+                                                  Term(
+                                                    FactorIntLiteral(
+                                                     0
+                                                    ) [FactorIntLiteral]
+                                                    NoMulopFactor(
+                                                    ) [NoMulopFactor]
+                                                  ) [Term]
+                                                  NoAddopTerminal(
+                                                  ) [NoAddopTerminal]
+                                                ) [ExprWithoutMinus]
+                                              ) [ConditionFactRelopExpr]
+                                              NoConditionFactMultiple(
+                                              ) [NoConditionFactMultiple]
+                                            ) [ConditionTerm]
+                                            NoConditionTermMultiple(
+                                            ) [NoConditionTermMultiple]
+                                          ) [Condition]
+                                          CondEnd(
+                                          ) [CondEnd]
+                                        ) [ConditionCloseParenthesis]
+                                        StatementInBraces(
+                                          StatementList(
+                                            NoStatementList(
+                                            ) [NoStatementList]
+                                            StatementDesignatorStatement(
+                                              DesignatorStmtAssign(
+                                                DesignatorStatementAssign(
+                                                  Designator(
+                                                    DesignatorDotIdent(
+                                                      DesignatorDot(
+                                                        Designator(
+                                                          DesignatorIdent(
+                                                           this
+                                                          ) [DesignatorIdent]
+                                                        ) [Designator]
+                                                      ) [DesignatorDot]
+                                                     empty
+                                                    ) [DesignatorDotIdent]
+                                                  ) [Designator]
+                                                  AssignOperator(
+                                                  ) [AssignOperator]
+                                                  ExprWithoutMinus(
+                                                    Term(
+                                                      FactorBoolLiteral(
+                                                       true
+                                                      ) [FactorBoolLiteral]
+                                                      NoMulopFactor(
+                                                      ) [NoMulopFactor]
+                                                    ) [Term]
+                                                    NoAddopTerminal(
+                                                    ) [NoAddopTerminal]
+                                                  ) [ExprWithoutMinus]
+                                                ) [DesignatorStatementAssign]
+                                              ) [DesignatorStmtAssign]
+                                            ) [StatementDesignatorStatement]
+                                          ) [StatementList]
+                                        ) [StatementInBraces]
+                                        IfThenEnd(
+                                        ) [IfThenEnd]
+                                      ) [StatementIf]
+                                    ) [StatementList]
+                                  ) [StatementInBraces]
+                                  IfThenEnd(
+                                  ) [IfThenEnd]
+                                ) [StatementIf]
+                              ) [StatementList]
+                            ) [MethodDeclarationVoid]
+                            MethodDeclList(
+                              MethodDeclarationVoid(
+                                MethodNameVoid(
+                                 reload
+                                ) [MethodNameVoid]
+                                NoFormParams(
+                                ) [NoFormParams]
+                                NoVarDeclList(
+                                ) [NoVarDeclList]
+                                StatementList(
+                                  NoStatementList(
+                                  ) [NoStatementList]
+                                  StatementIf(
+                                    IfKeyWord(
+                                    ) [IfKeyWord]
+                                    ConditionCloseParenthesis(
+                                      Condition(
+                                        ConditionTerm(
+                                          ConditionFactRelopExpr(
+                                            ExprWithoutMinus(
+                                              Term(
+                                                FactorDesignator(
+                                                  Designator(
+                                                    DesignatorDotIdent(
+                                                      DesignatorDot(
+                                                        Designator(
+                                                          DesignatorIdent(
+                                                           this
+                                                          ) [DesignatorIdent]
+                                                        ) [Designator]
+                                                      ) [DesignatorDot]
+                                                     ammo
+                                                    ) [DesignatorDotIdent]
+                                                  ) [Designator]
+                                                ) [FactorDesignator]
+                                                NoMulopFactor(
+                                                ) [NoMulopFactor]
+                                              ) [Term]
+                                              NoAddopTerminal(
+                                              ) [NoAddopTerminal]
+                                            ) [ExprWithoutMinus]
+                                            RelopNotEqual(
+                                             !=
+                                            ) [RelopNotEqual]
+                                            ExprWithoutMinus(
+                                              Term(
+                                                FactorDesignator(
+                                                  Designator(
+                                                    DesignatorDotIdent(
+                                                      DesignatorDot(
+                                                        Designator(
+                                                          DesignatorIdent(
+                                                           this
+                                                          ) [DesignatorIdent]
+                                                        ) [Designator]
+                                                      ) [DesignatorDot]
+                                                     MAX_AMMO
+                                                    ) [DesignatorDotIdent]
+                                                  ) [Designator]
+                                                ) [FactorDesignator]
+                                                NoMulopFactor(
+                                                ) [NoMulopFactor]
+                                              ) [Term]
+                                              NoAddopTerminal(
+                                              ) [NoAddopTerminal]
+                                            ) [ExprWithoutMinus]
+                                          ) [ConditionFactRelopExpr]
+                                          NoConditionFactMultiple(
+                                          ) [NoConditionFactMultiple]
+                                        ) [ConditionTerm]
+                                        NoConditionTermMultiple(
+                                        ) [NoConditionTermMultiple]
+                                      ) [Condition]
+                                      CondEnd(
+                                      ) [CondEnd]
+                                    ) [ConditionCloseParenthesis]
+                                    StatementInBraces(
+                                      StatementList(
+                                        StatementList(
+                                          NoStatementList(
+                                          ) [NoStatementList]
+                                          StatementDesignatorStatement(
+                                            DesignatorStmtAssign(
+                                              DesignatorStatementAssign(
+                                                Designator(
+                                                  DesignatorDotIdent(
+                                                    DesignatorDot(
+                                                      Designator(
+                                                        DesignatorIdent(
+                                                         this
+                                                        ) [DesignatorIdent]
+                                                      ) [Designator]
+                                                    ) [DesignatorDot]
+                                                   ammo
+                                                  ) [DesignatorDotIdent]
+                                                ) [Designator]
+                                                AssignOperator(
+                                                ) [AssignOperator]
+                                                ExprWithoutMinus(
+                                                  Term(
+                                                    FactorDesignator(
+                                                      Designator(
+                                                        DesignatorDotIdent(
+                                                          DesignatorDot(
+                                                            Designator(
+                                                              DesignatorIdent(
+                                                               this
+                                                              ) [DesignatorIdent]
+                                                            ) [Designator]
+                                                          ) [DesignatorDot]
+                                                         MAX_AMMO
+                                                        ) [DesignatorDotIdent]
+                                                      ) [Designator]
+                                                    ) [FactorDesignator]
+                                                    NoMulopFactor(
+                                                    ) [NoMulopFactor]
+                                                  ) [Term]
+                                                  NoAddopTerminal(
+                                                  ) [NoAddopTerminal]
+                                                ) [ExprWithoutMinus]
+                                              ) [DesignatorStatementAssign]
+                                            ) [DesignatorStmtAssign]
+                                          ) [StatementDesignatorStatement]
+                                        ) [StatementList]
+                                        StatementDesignatorStatement(
+                                          DesignatorStmtAssign(
+                                            DesignatorStatementAssign(
+                                              Designator(
+                                                DesignatorDotIdent(
+                                                  DesignatorDot(
+                                                    Designator(
+                                                      DesignatorIdent(
+                                                       this
+                                                      ) [DesignatorIdent]
+                                                    ) [Designator]
+                                                  ) [DesignatorDot]
+                                                 empty
+                                                ) [DesignatorDotIdent]
+                                              ) [Designator]
+                                              AssignOperator(
+                                              ) [AssignOperator]
+                                              ExprWithoutMinus(
+                                                Term(
+                                                  FactorBoolLiteral(
+                                                   false
+                                                  ) [FactorBoolLiteral]
+                                                  NoMulopFactor(
+                                                  ) [NoMulopFactor]
+                                                ) [Term]
+                                                NoAddopTerminal(
+                                                ) [NoAddopTerminal]
+                                              ) [ExprWithoutMinus]
+                                            ) [DesignatorStatementAssign]
+                                          ) [DesignatorStmtAssign]
+                                        ) [StatementDesignatorStatement]
+                                      ) [StatementList]
+                                    ) [StatementInBraces]
+                                    IfThenEnd(
+                                    ) [IfThenEnd]
+                                  ) [StatementIf]
+                                ) [StatementList]
+                              ) [MethodDeclarationVoid]
+                              NoMethodDeclList(
+                              ) [NoMethodDeclList]
+                            ) [MethodDeclList]
+                          ) [MethodDeclList]
+                        ) [MethodDeclList]
+                      ) [MethodDeclList]
+                    ) [MethodDeclList]
+                  ) [MethodDeclList]
+                ) [MethodDeclList]
+              ) [MethodDeclList]
+            ) [ConstructorsAndMethods]
+          ) [ClassDeclarationNoExtends]
+        ) [DeclElementBool]
+      ) [DeclList]
+      DeclElementBool(
+        ClassDeclarationWithExtends(
+         AWP
+          ClassTypeExtendDerived1(
+          ) [ClassTypeExtendDerived1]
+          ClassVarDeclList(
+            NoClassVarDeclList(
+            ) [NoClassVarDeclList]
+            ClassVarDeclaration(
+              Type(
+               int
+              ) [Type]
+              ClassVarNamee(
+               scopeRadius
+              ) [ClassVarNamee]
+              NoClassVarDeclMultiple(
+              ) [NoClassVarDeclMultiple]
+            ) [ClassVarDeclaration]
+          ) [ClassVarDeclList]
+          ConstructorsAndMethods(
+            NoConstructorDeclList(
+            ) [NoConstructorDeclList]
+            NoMethodDeclList(
+            ) [NoMethodDeclList]
+          ) [ConstructorsAndMethods]
+        ) [ClassDeclarationWithExtends]
+      ) [DeclElementBool]
+    ) [DeclList]
+    DeclElementBool(
+      ClassDeclarationWithExtends(
+       AK_47
+        ClassTypeExtends(
+          Type(
+           Weapon
+          ) [Type]
+        ) [ClassTypeExtends]
+        ClassVarDeclList(
+          NoClassVarDeclList(
+          ) [NoClassVarDeclList]
+          ClassVarDeclaration(
+            Type(
+             int
+            ) [Type]
+            ClassVarNamee(
+             rangeModifier
+            ) [ClassVarNamee]
+            NoClassVarDeclMultiple(
+            ) [NoClassVarDeclMultiple]
+          ) [ClassVarDeclaration]
+        ) [ClassVarDeclList]
+        ConstructorsAndMethods(
+          NoConstructorDeclList(
+          ) [NoConstructorDeclList]
+          MethodDeclList(
+            MethodDeclarationVoid(
+              MethodNameVoid(
+               setRange_modifier
+              ) [MethodNameVoid]
+              FormParams(
+                ParamTypeName(
+                  Type(
+                   int
+                  ) [Type]
+                 rangeModifier
+                ) [ParamTypeName]
+                NoFormParamsMultiple(
+                ) [NoFormParamsMultiple]
+              ) [FormParams]
+              NoVarDeclList(
+              ) [NoVarDeclList]
+              StatementList(
+                NoStatementList(
+                ) [NoStatementList]
+                StatementDesignatorStatement(
+                  DesignatorStmtAssign(
+                    DesignatorStatementAssign(
+                      Designator(
+                        DesignatorDotIdent(
+                          DesignatorDot(
+                            Designator(
+                              DesignatorIdent(
+                               this
+                              ) [DesignatorIdent]
+                            ) [Designator]
+                          ) [DesignatorDot]
+                         rangeModifier
+                        ) [DesignatorDotIdent]
+                      ) [Designator]
+                      AssignOperator(
+                      ) [AssignOperator]
+                      ExprWithoutMinus(
+                        Term(
+                          FactorDesignator(
+                            Designator(
+                              DesignatorIdent(
+                               rangeModifier
+                              ) [DesignatorIdent]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                          NoMulopFactor(
+                          ) [NoMulopFactor]
+                        ) [Term]
+                        NoAddopTerminal(
+                        ) [NoAddopTerminal]
+                      ) [ExprWithoutMinus]
+                    ) [DesignatorStatementAssign]
+                  ) [DesignatorStmtAssign]
+                ) [StatementDesignatorStatement]
+              ) [StatementList]
+            ) [MethodDeclarationVoid]
+            MethodDeclList(
+              MethodDeclarationType(
+                Type(
+                 int
+                ) [Type]
+                MethodNameType(
+                 getRange_modifier
+                ) [MethodNameType]
+                NoFormParams(
+                ) [NoFormParams]
+                NoVarDeclList(
+                ) [NoVarDeclList]
+                StatementList(
+                  NoStatementList(
+                  ) [NoStatementList]
+                  StatementReturnExpr(
+                    ReturnKeyWord(
+                    ) [ReturnKeyWord]
+                    ExprWithoutMinus(
+                      Term(
+                        FactorDesignator(
+                          Designator(
+                            DesignatorDotIdent(
+                              DesignatorDot(
+                                Designator(
+                                  DesignatorIdent(
+                                   this
+                                  ) [DesignatorIdent]
+                                ) [Designator]
+                              ) [DesignatorDot]
+                             rangeModifier
+                            ) [DesignatorDotIdent]
+                          ) [Designator]
+                        ) [FactorDesignator]
+                        NoMulopFactor(
+                        ) [NoMulopFactor]
+                      ) [Term]
+                      NoAddopTerminal(
+                      ) [NoAddopTerminal]
+                    ) [ExprWithoutMinus]
+                  ) [StatementReturnExpr]
+                ) [StatementList]
+              ) [MethodDeclarationType]
+              NoMethodDeclList(
+              ) [NoMethodDeclList]
+            ) [MethodDeclList]
+          ) [MethodDeclList]
+        ) [ConstructorsAndMethods]
+      ) [ClassDeclarationWithExtends]
+    ) [DeclElementBool]
+  ) [DeclList]
+  MethodDeclList(
+    MethodDeclarationVoid(
+      MethodNameVoid(
+       main
+      ) [MethodNameVoid]
+      NoFormParams(
+      ) [NoFormParams]
+      NoVarDeclList(
+      ) [NoVarDeclList]
+      NoStatementList(
+      ) [NoStatementList]
+    ) [MethodDeclarationVoid]
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+  ) [MethodDeclList]
+) [Program]
+INFO  21:27:20,056 - ===================================
+INFO  21:27:20,061 - Deklaracija konstante -> Con a: int, 4, 0 na liniji 5
+INFO  21:27:20,061 - Deklaracija konstante -> Con b: int, 3, 0 na liniji 5
+INFO  21:27:20,061 - Deklaracija globalne promenljive -> Var c: Arr of int, 0, 0 na liniji 6
+INFO  21:27:20,061 - Deklaracija globalne promenljive -> Var d: char, 1, 0 na liniji 7
+INFO  21:27:20,061 - Deklaracija globalne promenljive -> Var e: Arr of char, 2, 0 na liniji 7
+INFO  21:27:20,061 - Obradjuje se deklaracija funkcije setDamage na liniji 16
+INFO  21:27:20,061 - Deklaracija formalnog parametra funkcije -> Var damage: int, 0, 1 na liniji 16
+ERROR 21:27:20,061 - Simbol 'this' nije deklarisan <- Greska na liniji 16
+INFO  21:27:20,061 - Upotreba simbola 'damage' na liniji 16
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "rs.etf.pp1.symboltable.concepts.Obj.getType()" because "rs.ac.bg.etf.pp1.ast.DesignatorStatementAssign.getDesignator().obj" is null
+	at rs.ac.bg.etf.pp1.SemanticAnalyzer.visit(SemanticAnalyzer.java:450)
+	at rs.ac.bg.etf.pp1.ast.DesignatorStatementAssign.accept(DesignatorStatementAssign.java:48)
+	at rs.ac.bg.etf.pp1.ast.DesignatorStatementAssign.traverseBottomUp(DesignatorStatementAssign.java:68)
+	at rs.ac.bg.etf.pp1.ast.DesignatorStmtAssign.traverseBottomUp(DesignatorStmtAssign.java:39)
+	at rs.ac.bg.etf.pp1.ast.StatementDesignatorStatement.traverseBottomUp(StatementDesignatorStatement.java:39)
+	at rs.ac.bg.etf.pp1.ast.StatementList.traverseBottomUp(StatementList.java:53)
+	at rs.ac.bg.etf.pp1.ast.MethodDeclarationVoid.traverseBottomUp(MethodDeclarationVoid.java:81)
+	at rs.ac.bg.etf.pp1.ast.MethodDeclList.traverseBottomUp(MethodDeclList.java:52)
+	at rs.ac.bg.etf.pp1.ast.ConstructorsAndMethods.traverseBottomUp(ConstructorsAndMethods.java:53)
+	at rs.ac.bg.etf.pp1.ast.ClassDeclarationNoExtends.traverseBottomUp(ClassDeclarationNoExtends.java:63)
+	at rs.ac.bg.etf.pp1.ast.DeclElementBool.traverseBottomUp(DeclElementBool.java:39)
+	at rs.ac.bg.etf.pp1.ast.DeclList.traverseBottomUp(DeclList.java:53)
+	at rs.ac.bg.etf.pp1.ast.DeclList.traverseBottomUp(DeclList.java:52)
+	at rs.ac.bg.etf.pp1.ast.DeclList.traverseBottomUp(DeclList.java:52)
+	at rs.ac.bg.etf.pp1.ast.Program.traverseBottomUp(Program.java:86)
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:54)
